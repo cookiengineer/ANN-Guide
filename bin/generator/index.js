@@ -2,6 +2,44 @@
 
 (function(global) {
 
+	const _create_directory = function(path, mode) {
+
+		if (mode === undefined) {
+			mode = 0777 & (~process.umask());
+		}
+
+
+		let is_directory = false;
+
+		try {
+
+			is_directory = _fs.lstatSync(path).isDirectory();
+
+		} catch(err) {
+
+			if (err.code === 'ENOENT') {
+
+				if (_create_directory(_path.dirname(path), mode) === true) {
+					_fs.mkdirSync(path, mode);
+				}
+
+				try {
+					is_directory = _fs.lstatSync(path).isDirectory();
+				} catch(err) {
+				}
+
+			}
+
+		} finally {
+
+			return is_directory;
+
+		}
+
+	};
+
+
+
 	var _BOOK  = require('fs').readFileSync(__dirname + '/book.html').toString('utf8');
 	var _INDEX = require('fs').readFileSync(__dirname + '/index.html').toString('utf8');
 
@@ -43,6 +81,7 @@
 					tmp = tmp.split('${data}').join(book_data);
 					tmp = tmp.split('${name}').join(book_name);
 
+					_create_directory(_path.dirname(book_out));
 					_fs.writeFileSync(book_out, tmp, 'utf8');
 
 

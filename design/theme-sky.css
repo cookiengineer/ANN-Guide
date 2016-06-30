@@ -55,13 +55,7 @@
 
 
 body {
-  background: #add9e4;
-  background: -moz-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f7fbfc), color-stop(100%, #add9e4));
-  background: -webkit-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: -o-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: -ms-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+  background: #ffffff;
   background-color: #f7fbfc; }
 
 .reveal {
@@ -94,13 +88,13 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 3.77em; }
+  font-size: 3em; }
 
 .reveal h2 {
-  font-size: 2.11em; }
+  font-size: 1.5em; }
 
 .reveal h3 {
-  font-size: 1.55em; }
+  font-size: 1.2em; }
 
 .reveal h4 {
   font-size: 1em; }
@@ -163,8 +157,7 @@ body {
   margin: 20px auto;
   padding: 5px;
   font-style: italic;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
+  background: rgba(255, 255, 255, 0.05); }
 
 .reveal blockquote p:first-child, .reveal blockquote p:last-child {
   display: inline-block; }
@@ -181,8 +174,7 @@ body {
   font-size: 0.5em;
   font-family: monospace;
   line-height: 1.2em;
-  word-wrap: break-word;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
+  word-wrap: break-word; }
 
 .reveal code {
   font-family: monospace;
@@ -259,9 +251,8 @@ body {
  *********************************************/
 .reveal section img {
   margin: 15px 0px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #333;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+  border: 0px solid transparent;
+  background: rgba(255, 255, 255, 0.12); }
 
 .reveal a img {
   -webkit-transition: all 0.15s linear;
@@ -269,9 +260,7 @@ body {
   transition: all 0.15s linear; }
 
 .reveal a:hover img {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #3b759e;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
+  background: rgba(255, 255, 255, 0.2); }
 
 /*********************************************
  * NAVIGATION CONTROLS
