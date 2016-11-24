@@ -30,12 +30,14 @@
 			let s_population = this.settings.population;
 
 
+			// No Generations available
+			// - fast route, just generate a new plain one
 			if (_GENERATIONS.length === 0) {
 
-				// nn.perceptronGeneration(s_network);
-				// population.push(nn.getSave())
 				for (let p = 0; p < s_population; p++) {
 
+					// New Population
+					// - each Agent's brain is random by default
 					population.push(new Agent({
 						network: s_network
 					}));
@@ -46,6 +48,9 @@
 
 				let current = _GENERATIONS[_GENERATIONS.length - 1];
 
+				// Sort the current Population
+				// - Higher fitness first (to 0)
+				// - Lower fitness last (to length - 1)
 				current.sort(function(agent_a, agent_b) {
 					if (agent_a.fitness > agent_b.fitness) return -1;
 					if (agent_a.fitness < agent_b.fitness) return  1;
@@ -54,6 +59,8 @@
 
 
 				// Survivor Population
+				// - Agent.clone() leads to unlinked clone
+				// - this avoids coincidence of 1 Agent leading to multiple Entities
 				for (let e = 0, el = Math.round(0.2 * s_population); e < el; e++) {
 
 					let agent = current[e];
@@ -66,6 +73,7 @@
 
 
 				// Mutant Population
+				// - each Agent's brain is random by default
 				for (let m = 0, ml = Math.round(0.2 * s_population); m < ml; m++) {
 
 					if (population.length < s_population) {
@@ -83,6 +91,10 @@
 				let b_population = Math.round(0.2 * s_population);
 
 				// Breed Population
+				// - b is automatically reset if bigger than 20%
+				// - b leads to multiple incest Babies for multiple dominant Agents
+				// - best Agent by fitness can now breed
+				// - Babies are the ones from dominant population
 				while (population.length < s_population) {
 
 					let agent_mum = current[b];
@@ -107,9 +119,14 @@
 			}
 
 
+			// Track the Population
+			// - just for the sake of Debugging, tbh.
 			_GENERATIONS.push(population);
 
 
+			// Optionally track more Generations
+			// - in case something goes wrong
+			// - set settings.history to higher value
 			if (_GENERATIONS.length > s_history) {
 				_GENERATIONS.splice(0, _GENERATIONS.length - s_history);
 			}

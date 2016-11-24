@@ -82,19 +82,30 @@
 
 		start: function() {
 
+
 			let evolution = this.evolution;
 			if (evolution !== null) {
+
+				// Autopilot Mode
+				// - Use Evolution to generate Agents (Planes)
 
 				this.planes = [];
 				this.goals  = [];
 
-				this.population = evolution.cycle();
+				// Evolution Cycle / Epoche
+				// - population is an Array of Agent instances
+				// - Each Agent represents one Plane
 
+				this.population = evolution.cycle();
 				this.population.forEach(function(agent) {
 					this.planes.push(new Plane());
 				}.bind(this));
 
 			} else {
+
+				// Manual Mode
+				// - Planes were set externally
+				// - Reset all Planes (on restart)
 
 				this.goals = [];
 
@@ -108,9 +119,17 @@
 			}
 
 
+			// Sweet statistics and stuff
 			this._info.alive = this.planes.length;
 			this._info.score = 0;
 			this._info.generation++;
+
+			// Seed-based Randomizer is IMPORTANT
+			// - used only for Hurdle (Goal) generation
+			// - this allows identical level structure
+			// - still random, but in same order
+			// - Math.random() will lead to worse performance
+			// - Math.random() will let NNs not learn so efficiently
 
 			this._randomizer = new Twister(1337);
 
@@ -176,6 +195,11 @@
 			context.fillText('Agents:     ' + info.alive,      10, 100);
 
 
+			// This flag is set if external code
+			// "wants" to stop the current game
+			// - you know, higher FPS than we can
+			//   compute stuff.
+
 			if (this._has_ended === false) {
 
 				requestAnimationFrame(function() {
@@ -199,6 +223,10 @@
 
 			if (planes.length > 0 && goals.length > 0) {
 
+				// Find Next Goal
+				// - only if planes are available
+				// - only if goals are available
+
 				let agent = planes[0];
 				let awh   = planes[0].width / 2;
 				let gwh   = goals[0].width  / 2;
@@ -206,6 +234,11 @@
 				for (let g = 0, gl = goals.length; g < gl; g++) {
 
 					let goal = goals[g];
+
+					// This is AABB collision
+					// - if goal is "being passed through"
+					// - else if next goal is ahead in X-position
+
 					if (agent.x > goal.x && agent.x - awh < goal.x + gwh) {
 						next_goal = goal.y / this.height;
 						break;
@@ -218,6 +251,8 @@
 
 			} else {
 
+				// No Goal available
+				// - flap to the middle, so Planes won't die
 				next_goal = 0.5;
 
 			}
@@ -232,6 +267,10 @@
 
 					if (agent !== null) {
 
+						// Brain Computation
+						// - First Sensor is relative Plane Position
+						// - Second Sensor is relative Goal Position
+						// - Output is "To Flap or Not to Flap"
 						let inputs = [ plane.y / this.height, next_goal ];
 						let result = agent.compute(inputs);
 						if (result > 0.5) {
@@ -241,9 +280,16 @@
 					}
 
 
+					// IMPORTANT:
+					// - update Plane position _AFTERWARDS_
+					// - If FPS > 60, this allows hard
+					//   computation cycles for slow machines
 					plane.update(this);
 
 
+					// If Plane died in update() method,
+					// track the Agent fitness. Less computation
+					// intensive than tracking it always.
 					if (plane.alive === false) {
 
 						info.alive--;
@@ -258,6 +304,11 @@
 
 			}
 
+
+			// Goals are updated _AFTERWARDS_
+			// This is important, as Brain
+			// Computation is dependent on
+			// Goal Position.
 
 			for (let g = 0, gl = goals.length; g < gl; g++) {
 
@@ -274,6 +325,12 @@
 			}
 
 
+			// Every Reset Iteration, generate
+			// Goals. Seed-Based Randomizer (with
+			// static seed) leads to identical
+			// level structure after Game.start()
+			// or "restart" was called again.
+
 			if (this._iterations === 0) {
 
 				let border = 128;
@@ -286,23 +343,36 @@
 			}
 
 
+			// Background Shinyness and
+			// Iterations for Goal Spawn
+
 			this._background -= 0.5;
 			this._iterations++;
-
 
 			if (this._iterations === 90) {
 				this._iterations = 0;
 			}
 
 
+			// Restart the Game if all
+			// Planes died already
+
 			if (info.alive === 0) {
 				this.start();
 			}
 
 
+			// Track the current Score
+			// Track the High Score
+
 			info.score++;
 			info.highscore = Math.max(info.score, info.highscore);
 
+
+			// This flag is set if external code
+			// "wants" to stop the current game
+			// - you know, higher FPS than we can
+			//   compute stuff.
 
 			if (this._has_ended === false) {
 
