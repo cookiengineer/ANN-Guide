@@ -82,7 +82,6 @@
 
 		start: function() {
 
-
 			let evolution = this.evolution;
 			if (evolution !== null) {
 
@@ -215,7 +214,6 @@
 			let info       = this._info;
 			let planes     = this.planes;
 			let goals      = this.goals;
-			let evolution  = this.evolution;
 			let population = this.population;
 
 

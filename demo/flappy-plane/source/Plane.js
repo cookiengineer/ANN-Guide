@@ -69,6 +69,9 @@
 
 		update: function(game) {
 
+			// Gravity is in Y direction
+			// Plane never moves in X direction
+			// (Game moves Goals, not Planes)
 			this.gravity += this.velocity;
 			this.y       += this.gravity;
 
@@ -79,12 +82,17 @@
 			let hh = this.height / 2;
 
 
+			// Plane moves outside Game Field
+			// - dies if flapped too high
+			// - dies if gravity caused crash
 			if (y >= game.height || y <= 0) {
 				this.alive = false;
 			}
 
+
 			if (this.alive === true) {
 
+				// AABB collisions for Plane with each Goal
 				for (let g = 0, gl = game.goals.length; g < gl; g++) {
 
 					let goal = game.goals[g];

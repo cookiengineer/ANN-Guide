@@ -25,7 +25,7 @@ or (if on old Macbook) via SimpleHTTPServer.
 [Evolutionary AI](./book/01-Evolutionary-AI.md)
 
 - hold on FFM Analytics November 2016
-- Demo is available at [tiny.cc/flappy-plane](http://tiny.cc/flappy-plane)
+- Demo is available at [rawgit.com/.../demo/flappy-plane/index.html](https://rawgit.com/cookiengineer/talks/master/demo/flappy-plane/index.html)
 - Demo is in folder [demo/flappy-plane](./demo/flappy-plane)
 - [(Low Quality) Video on Periscope](https://www.periscope.tv/w/1ypJdAwQlXrxW)
 
@@ -33,6 +33,25 @@ or (if on old Macbook) via SimpleHTTPServer.
 
 - hold on FrankfurtJS December 2015
 - No Video :(
+
+
+## Work in Progress
+
+Reinforcement AI
+
+- not yet held
+- Demo is available at [rawgit.com/.../demo/pong/index.html](https://rawgit.com/cookiengineer/talks/master/demo/pong/index.html)
+- Demo is in folder [demo/pong](./demo/pong)
+
+Evolutionary Reinforcement AI
+
+- not yet held
+- Demo is in folder [demo/pong-evolution](./demo/pong-evolution)
+
+NEAT Reinforcement AI
+
+- not yet held
+- Demo is in folder [demo/pong-neat](./demo/pong-neat)
 
 
 ## License
