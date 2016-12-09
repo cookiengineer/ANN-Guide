@@ -261,7 +261,9 @@
 			let paddles = this.paddles;
 
 
-			context.clearRect(0, 0, this.width, this.height);
+			context.fillStyle = '#404552';
+			context.fillRect(0, 0, this.width, this.height);
+			// context.clearRect(0, 0, this.width, this.height);
 
 
 			for (let b = 0, bl = balls.length; b < bl; b++) {
