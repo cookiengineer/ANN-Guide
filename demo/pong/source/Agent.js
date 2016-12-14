@@ -12,7 +12,7 @@
 	const Brain = function(network) {
 
 		if (network === undefined) {
-			network = [3, [3, 3], 1];
+			network = [6, [6, 6], 1];
 		}
 
 
@@ -245,7 +245,7 @@
 	const Agent = function(data) {
 
 		let settings = Object.assign({
-			network: [3, [3, 3], 1]
+			network: [6, [6, 6], 1]
 		}, data);
 
 

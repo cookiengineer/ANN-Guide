@@ -8,8 +8,9 @@
 		this.vx = 0;
 		this.vy = 0;
 
-		this.radius = 8;
-		this.trail  = [];
+		this.last_hit = null;
+		this.radius   = 8;
+		this.trail    = [];
 
 		this._t     = 0;
 		this._count = 0;
@@ -76,19 +77,23 @@
 
 
 			if (x - r <= 0) {
-				this.alive = false;
+				this.alive    = false;
+				this.last_hit = null;
 //				this.vx = -1 * this.vx;
 			} else if (x + r >= game.width) {
-				this.alive = false;
+				this.alive    = false;
+				this.last_hit = null;
 //				this.vx = -1 * this.vx;
 			}
 
 			if (y - r <= 0) {
-				this.y  = r;
-				this.vy = -1 * this.vy;
+				this.y        = r;
+				this.vy       = -1 * this.vy;
+				this.last_hit = null;
 			} else if (y + r >= game.height) {
-				this.y  = game.height - r;
-				this.vy = -1 * this.vy;
+				this.y        = game.height - r;
+				this.vy       = -1 * this.vy;
+				this.last_hit = null;
 			}
 
 

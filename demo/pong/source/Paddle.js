@@ -99,7 +99,9 @@
 			for (let b = 0, bl = game.balls.length; b < bl; b++) {
 
 				let ball = game.balls[b];
-				let br   = ball.radius;
+				if (ball.last_hit === this) {
+					continue;
+				}
 
 
 				// AABB Collision (Circle/Rectangle)
@@ -108,6 +110,7 @@
 				// - make game harder over time by accelerating ball
 				// - dont make game so fast that we can't play it anymore
 
+				let br     = ball.radius;
 				let coll_x = (ball.x + br >= x - hw) && (ball.x - br <= x + hw);
 				let coll_y = (ball.y + br >= y - hh) && (ball.y - br <= y + hh);
 
@@ -135,6 +138,7 @@
 
 					}
 
+					ball.last_hit = this;
 					hit_something = true;
 
 				}

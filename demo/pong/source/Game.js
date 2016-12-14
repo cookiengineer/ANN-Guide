@@ -162,7 +162,14 @@
 
 					if (agent !== null && closest_ball !== null) {
 
-						let inputs  = [ paddle.y / that.height, closest_ball.y / that.height, closest_ball.vy / 25 ];
+						let inputs  = [
+							paddle.x / that.width,
+							paddle.y / that.height,
+							closest_ball.x / that.width,
+							closest_ball.y / that.height,
+							closest_ball.vx / 25,
+							closest_ball.vy / 25
+						];
 						let outputs = [ closest_ball.y / that.height ];
 
 						agent.learn(inputs, outputs);
@@ -343,7 +350,14 @@
 					// - Second Sensor is relative Ball Position
 					// - Output is "To Move Up or Down or Do Nothing"
 
-					let inputs  = [ paddle.y / this.height, closest_ball.y / this.height, closest_ball.vy / 25 ];
+					let inputs  = [
+						paddle.x / this.width,
+						paddle.y / this.height,
+						closest_ball.x / this.width,
+						closest_ball.y / this.height,
+						closest_ball.vx / 25,
+						closest_ball.vy / 25
+					];
 					let result  = agent.compute(inputs);
 
 					let rel_pos = paddle.y / this.height;
