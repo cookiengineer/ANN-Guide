@@ -162,12 +162,10 @@
 			this.compute(inputs);
 
 
-			// XXX: neuron.gradient is neuron.delta
-
-
 			let layers = this.layers;
 
 
+			// Calculate Gradient for Output Layer
 			let output_layer = layers[layers.length - 1];
 
 			for (let o = 0, ol = output_layer.length; o < ol; o++) {
@@ -180,6 +178,8 @@
 
 			}
 
+
+			// Calculate Gradients for Hidden Layers and Input Layer
 			for (let l = layers.length - 2; l >= 0; l--) {
 
 				let current_layer = layers[l];
@@ -204,8 +204,26 @@
 			}
 
 
+			// Calculate weights for Input Layer
+			let input_layer = layers[0];
 
-			for (let l = 0, ll = layers.length; l < ll; l++) {
+			for (let i = 0, il = input_layer.length; i < il; i++) {
+
+				let neuron = input_layer[i];
+
+				neuron.bias += _LEARNING_RATE * neuron.delta;
+
+				for (let w = 0, wl = neuron.weights.length; w < wl; w++) {
+					let delta = _LEARNING_RATE * neuron.delta * input[w];
+					neuron.weights    += delta * _LEARNING_MOMENTUM * neuron.history[w];
+					neuron.history[w]  = delta;
+				}
+
+			}
+
+
+			// Calculate weights for Hidden Layers and Output Layer
+			for (let l = 1, ll = layers.length; l < ll; l++) {
 
 				let current_layer = layers[l];
 				let prev_layer    = layers[l - 1];
@@ -217,21 +235,11 @@
 					neuron.bias += _LEARNING_RATE * neuron.delta;
 
 
-					let history = neuron.history;
-
 					for (let w = 0, wl = neuron.weights.length; w < wl; w++) {
-
-						let value = (l === 0 ? input[w] : prev_layer[w].value);
-						let delta = _LEARNING_RATE * neuron.delta * value;
-
-						neuron.weights[w] += delta;
-						neuron.weights[w] += _LEARNING_MOMENTUM * neuron.history[w];
-
-						history[w] = delta;
-
+						let delta = _LEARNING_RATE * neuron.delta * prev_layer[w].value;
+						neuron.weights[w] += delta + _LEARNING_MOMENTUM * neuron.history[w];
+						neuron.history[w]  = delta;
 					}
-
-					neuron.history = history;
 
 				}
 
