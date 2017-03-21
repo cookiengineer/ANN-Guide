@@ -218,7 +218,7 @@ fuck I'm doing all the time.
 
 ## Cortana
 
-![cortana](/asset/humans-need-not-apply/cortana.png)
+![cortana](/asset/humans-need-not-apply/cortana.jpg)
 
 ## ROSS Intelligence
 
