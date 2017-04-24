@@ -45,7 +45,7 @@
 		<section>
 			<h2>Meta Talk</h2>
 			<p>
-				I prefer ES/HyperNEAT over everything (including sleep), this is an Absolute Beginner-Level talk.
+				I prefer backpropagated ES/HyperNEAT over everything (including sleep), but this is an Absolute Beginner-Level talk.
 			</p>
 		</section>
 		<section>
@@ -59,24 +59,11 @@
 		<section>
 			<h2>In-Depth Talk</h2>
 			<ul>
+				<li>Reinforcement Learning Basics</li>
 				<li>Genetic Programming Basics</li>
 				<li>Evolution Basics</li>
 				<li>Competitive Environments</li>
 				<li>Multi-Agent Systems</li>
-			</ul>
-		</section>
-		<section>
-			<h2>In Practice</h2>
-			<ul>
-				<li>Architecture</li>
-				<li>Demo Time (Flappy Bird)</li>
-			</ul>
-		</section>
-		<section>
-			<h2>In Practice</h2>
-			<ul>
-				<li>(hopefully) Live Coding</li>
-				<li>(maybe) Some NEAT-related Stuff</li>
 			</ul>
 		</section>
 		<section>
@@ -89,6 +76,12 @@
 				<li>I also do hate maths and doctors</li>
 				<li>ML guys probably hate me anyways</li>
 			</ul>
+		</section>
+		<section>
+			<h2>Disclaimer</h2>
+			<p>
+				I tend to say fuck a lot. At least I'm honest 'bout it.
+			</p>
 		</section>
 	</section>
 	<section>
@@ -145,7 +138,73 @@
 	</section>
 	<section>
 		<section>
-			<h1>In-Depth Talk</h1>
+			<h1>Reinforcement Basics</h1>
+		</section>
+		<section>
+			<h2>Reinforcement Basics</h2>
+			<ul>
+				<li>Idea is to train an NN with dataset</li>
+				<li>reward for good results</li>
+				<li>punish for bad results</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Reinforcement Basics</h2>
+			<ul>
+				<li>Backpropagation algorithm</li>
+				<li>given input</li>
+				<li>expected output (or labels in dataset)</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Reinforcement Basics</h2>
+			<p>
+				Error function is calculating the delta between given output and expected output (similar to integral approximations).
+			</p>
+		</section>
+		<section>
+			<h2>Reinforcement Basics</h2>
+			<ul>
+				<li>Gradient calculation for each step is inefficient</li>
+				<li>Gradient boosting</li>
+				<li>Basic concept is to predict the gradient</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Live Demo</h2>
+			<p>
+				Game Demo (autobattle)
+			</p>
+			<p>
+				<a href="http://tiny.cc/reinforced-pong">tiny.cc/reinforced-pong</a>
+			</p>
+		</section>
+		<section>
+			<h2>Problems with the Game</h2>
+			<ul>
+				<li>Math.random() helps learning</li>
+				<li>Always competitive scenarios</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Problems with Reinforcement</h2>
+			<ul>
+				<li>No enemy means no improvement</li>
+				<li>No failure means no improvement</li>
+				<li>Always tries to "hack" rewards</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Problems with Reinforcement</h2>
+			<ul>
+				<li>Analytical model</li>
+				<li>NOT a generational model</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Genetic Programming Basics</h1>
 		</section>
 		<section>
 			<h2>Neural Network Basics</h2>
@@ -183,6 +242,11 @@
 				<img src="/asset/genome-nn.png" alt="genome-nn">
 			</p>
 		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Evolution Basics</h1>
+		</section>
 		<section>
 			<h2>Evolution Basics</h2>
 			<ul>
@@ -218,11 +282,6 @@
 				<li>Best fitness gets to multiply</li>
 			</ul>
 		</section>
-	</section>
-	<section>
-		<section>
-			<h1>In Practice</h1>
-		</section>
 		<section>
 			<h2>Live Demo</h2>
 			<p>
@@ -231,6 +290,11 @@
 			<p>
 				<a href="http://tiny.cc/flappy-plane">tiny.cc/flappy-plane</a>
 			</p>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Architecture</h1>
 		</section>
 		<section>
 			<h2>Architecture</h2>
@@ -298,18 +362,19 @@
 				<li>No Tracking of Performance</li>
 			</ul>
 		</section>
+	</section>
+	<section>
+		<section>
+			<h1>The End</h1>
+		</section>
 		<section>
 			<h2>Better Concepts</h2>
 			<ul>
 				<li>NEAT</li>
 				<li>HyperNEAT</li>
 				<li>ES-HyperNEAT</li>
+				<li>backpropagated ES-HyperNEAT</li>
 			</ul>
-		</section>
-	</section>
-	<section>
-		<section>
-			<h1>The End</h1>
 		</section>
 		<section>
 			<h2>The End</h2>

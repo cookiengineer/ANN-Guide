@@ -25,6 +25,7 @@ or (if on old Macbook) via SimpleHTTPServer.
 [Evolutionary AI](./book/01-Evolutionary-AI.md)
 
 - hold on FFM Analytics November 2016
+- hold on KarlsruheJS April 2017
 - Demo is available at [rawgit.com/.../demo/flappy-plane/index.html](https://rawgit.com/cookiengineer/talks/master/demo/flappy-plane/index.html)
 - Demo is in folder [demo/flappy-plane](./demo/flappy-plane)
 - [(Low Quality) Video on Periscope](https://www.periscope.tv/w/1ypJdAwQlXrxW)

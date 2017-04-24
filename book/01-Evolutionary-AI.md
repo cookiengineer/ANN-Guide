@@ -12,10 +12,9 @@
 
 ## Meta Talk
 
-I prefer ES/HyperNEAT over everything
-(including sleep), this is an Absolute
-Beginner-Level talk.
-
+I prefer backpropagated ES/HyperNEAT
+over everything (including sleep), but
+this is an Absolute Beginner-Level talk.
 
 ## Meta Talk
 
@@ -25,21 +24,11 @@ Beginner-Level talk.
 
 ## In-Depth Talk
 
+- Reinforcement Learning Basics
 - Genetic Programming Basics
 - Evolution Basics
 - Competitive Environments
 - Multi-Agent Systems
-
-## In Practice
-
-- Architecture
-- Demo Time (Flappy Bird)
-
-## In Practice
-
-- (hopefully) Live Coding
-- (maybe) Some NEAT-related Stuff
-
 
 ## Disclaimer
 
@@ -49,6 +38,11 @@ Beginner-Level talk.
 - I hate manual labor
 - I also do hate maths and doctors
 - ML guys probably hate me anyways
+
+## Disclaimer
+
+I tend to say fuck a lot.
+At least I'm honest 'bout it.
 
 
 = Meta Talk
@@ -97,9 +91,62 @@ Beginner-Level talk.
 - Unsupervised Systems (Evolutionary)
 
 
-= In-Depth Talk
+= Reinforcement Basics
 
-# In-Depth Talk
+# Reinforcement Basics
+
+## Reinforcement Basics
+
+- Idea is to train an NN with dataset
+- reward for good results
+- punish for bad results
+
+## Reinforcement Basics
+
+- Backpropagation algorithm
+- given input
+- expected output (or labels in dataset)
+
+## Reinforcement Basics
+
+Error function is calculating the delta
+between given output and expected output
+(similar to integral approximations).
+
+## Reinforcement Basics
+
+- Gradient calculation for each step is inefficient
+- Gradient boosting
+- Basic concept is to predict the gradient
+
+
+## Live Demo
+
+Game Demo (autobattle)
+
+[tiny.cc/reinforced-pong](http://tiny.cc/reinforced-pong)
+
+
+## Problems with the Game
+
+- Math.random() helps learning
+- Always competitive scenarios
+
+## Problems with Reinforcement
+
+- No enemy means no improvement
+- No failure means no improvement
+- Always tries to "hack" rewards
+
+## Problems with Reinforcement
+
+- Analytical model
+- NOT a generational model
+
+
+= Genetic Programming Basics
+
+# Genetic Programming Basics
 
 ## Neural Network Basics
 
@@ -128,6 +175,10 @@ Beginner-Level talk.
 ![genome-nn](/asset/genome-nn.png)
 
 
+= Evolution Basics
+
+# Evolution Basics
+
 ## Evolution Basics
 
 - Evolution has three phases
@@ -148,7 +199,6 @@ Beginner-Level talk.
 - Some of them are Mutants
 - Some of them are Survivors
 - Only the best ones get to breed
- 
 
 ## Competitive Environments
 
@@ -159,10 +209,6 @@ Beginner-Level talk.
 - Best fitness gets to multiply
 
 
-= In Practice
-
-# In Practice
-
 ## Live Demo
 
 Game Demo (Manual)
@@ -170,12 +216,15 @@ Game Demo (Manual)
 [tiny.cc/flappy-plane](http://tiny.cc/flappy-plane)
 
 
+= Architecture
+
+# Architecture
+
 ## Architecture
 
 - Evolution has an interval / timeout
 - Population is an array of Agents
 - Each Generation represents one Evolution Cycle
-
 
 ## Agent Architecture
 
@@ -183,13 +232,11 @@ Game Demo (Manual)
 - Each Agent controls an Entity
 - Each Agent has a fitness property
 
-
 ## Brain Architecture
 
 - Sensor 1: Center (position.y) of Plane
 - Sensor 2: Center (position.y) of next Goal
 - Control 1: calls method Plane.flap()
-
 
 ## Brain Architecture
 
@@ -212,12 +259,10 @@ Code Explanations
 - Math.random() is unfair
 - No stepped hurdles
 
-
 ## Problems with Evolution
 
 - Mutation Rate good at start
 - Mutation Rate bad at end
-
 
 ## Problems with Breeding
 
@@ -226,17 +271,17 @@ Code Explanations
 - No Tracking of Performance
 
 
+= The End
+
+# The End
+
 ## Better Concepts
 
 - NEAT
 - HyperNEAT
 - ES-HyperNEAT
+- backpropagated ES-HyperNEAT
 
-
-
-= The End
-
-# The End
 
 ## The End
 
