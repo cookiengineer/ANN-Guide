@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Evolutionary AI Demo: Flappy Plane</title>
+		<title>Evolutionary Flappy Plane</title>
 
 		<!-- BOOTSTRAP -->
 		<script src="source/Twister.js"></script>
+		<script src="source/Brain.js"></script>
 		<script src="source/Goal.js"></script>
 		<script src="source/Plane.js"></script>
 		<script src="source/Game.js"></script>
@@ -20,19 +21,19 @@
 			<button onclick="_start_game_manual()">manual</button>
 			<span></span>
 			<button onclick="_start_game_autopilot()">autopilot</button>
-			<button disabled onclick="game.setFPS(60)">normal</button> 
-			<button disabled onclick="game.setFPS(120)">fast</button> 
+			<button disabled onclick="game.setFPS(60)">normal</button>
+			<button disabled onclick="game.setFPS(120)">fast</button>
 			<button disabled onclick="game.setFPS(360)">hyper</button>
 			<i>Manual: Click/Touch the Canvas to flap</i>
-			<a rel="noopener nofollow" target="_blank" href="https://github.com/cookiengineer/talks">github.com/cookiengineer/talks</a>
+			<a rel="noopener nofollow" target="_blank" href="https://github.com/cookiengineer/machine-learning-for-dummies">GitHub Repo</a>
 		</aside>
 
 		<script>
 
 		(function(global) {
 
-			let autopilot_buttons = [].slice.call(document.querySelectorAll('button[disabled]'));
-			let manual_control    = function() {
+			const autopilot_buttons = Array.from(document.querySelectorAll('button[disabled]'));
+			const manual_control    = function() {
 
 				if (typeof game === 'undefined') return;
 
@@ -43,7 +44,7 @@
 
 			};
 
-			_start_game_autopilot = function() {
+			global._start_game_autopilot = function() {
 
 				if (typeof game !== 'undefined') {
 					game.stop();
@@ -69,7 +70,7 @@
 
 			};
 
-			_start_game_manual = function() {
+			global._start_game_manual = function() {
 
 				if (typeof game !== 'undefined') {
 					game.stop();
@@ -95,4 +96,4 @@
 		})(this);
 		</script>
 	</body>
-</html> 
+</html>

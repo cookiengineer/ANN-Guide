@@ -73,13 +73,6 @@ We think programming sucks. This is why.
 
 ## Isomorphism
 
-Well, close enough. Or so.
-
-![close-enough](/asset/close-enough.png)
-
-
-## Isomorphism
-
 - No, porting HTML5 to OpenGL is bad idea.
 - No, neither is bundling a Browser.
 - You can still go for LinuxJS. No, srsly.

@@ -4,11 +4,12 @@
 		<title>Reinforcement AI Demo: Pong</title>
 
 		<!-- BOOTSTRAP -->
+		<script src="source/Brain.js"></script>
+		<script src="source/Agent.js"></script>
 		<script src="source/Twister.js"></script>
 		<script src="source/Ball.js"></script>
 		<script src="source/Paddle.js"></script>
 		<script src="source/Game.js"></script>
-		<script src="source/Agent.js"></script>
 
 		<link rel="stylesheet" href="./index.css">
 
@@ -19,8 +20,8 @@
 			<button onclick="_start_game_manual()">manual</button>
 			<span></span>
 			<button onclick="_start_game_autobattle()">autobattle</button>
-			<button disabled onclick="game.setFPS(60)">normal</button> 
-			<button disabled onclick="game.setFPS(120)">fast</button> 
+			<button disabled onclick="game.setFPS(60)">normal</button>
+			<button disabled onclick="game.setFPS(120)">fast</button>
 			<button disabled onclick="game.setFPS(360)">hyper</button>
 			<i>Manual: Use Arrow keys or WASD to move</i>
 			<a rel="noopener nofollow" target="_blank" href="https://github.com/cookiengineer/talks">github.com/cookiengineer/talks</a>
@@ -28,12 +29,12 @@
 
 		<script>
 		(function(global) {
-		
+
 			let autobattle_buttons = [].slice.call(document.querySelectorAll('button[disabled]'));
 			let manual_control     = function(e) {
 
 				if (typeof game === 'undefined') return;
-		
+
 
 				let direction = null;
 
@@ -62,16 +63,16 @@
 					e.stopPropagation();
 
 				}
-		
+
 			};
-		
+
 			_start_game_autobattle = function() {
-		
+
 				if (typeof game !== 'undefined') {
 					game.stop();
 				}
-		
-		
+
+
 				game = new Game();
 				game.population = [
 					new Agent(),
@@ -80,37 +81,37 @@
 				game.start();
 				game.update();
 				game.render();
-		
-		
+
+
 				document.removeEventListener('keydown', manual_control);
-		
+
 				autobattle_buttons.forEach(function(button) {
 					button.removeAttribute('disabled');
 				});
-		
+
 			};
-		
+
 			_start_game_manual = function() {
-		
+
 				if (typeof game !== 'undefined') {
 					game.stop();
 				}
-		
-		
+
+
 				game = new Game();
 				game.start();
 				game.update();
 				game.render();
-		
-		
+
+
 				document.addEventListener('keydown', manual_control, true);
-		
+
 				autobattle_buttons.forEach(function(button) {
 					button.setAttribute('disabled', 'true');
 				});
-		
+
 			};
-		
+
 		})(this);
 		</script>
 	</body>

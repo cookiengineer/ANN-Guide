@@ -55,8 +55,8 @@
 
 				context.drawImage(
 					_IMAGE,
-					this.x - 1/2 * this.width,
-					this.y - 1/2 * this.height,
+					this.x - 1 / 2 * this.width,
+					this.y - 1 / 2 * this.height,
 					this.width,
 					this.height
 				);
@@ -80,5 +80,5 @@
 
 	global.Goal = Goal;
 
-})(this);
+})(typeof global !== 'undefined' ? global : this);
 

@@ -79,11 +79,9 @@
 			if (x - r <= 0) {
 				this.alive    = false;
 				this.last_hit = null;
-//				this.vx = -1 * this.vx;
 			} else if (x + r >= game.width) {
 				this.alive    = false;
 				this.last_hit = null;
-//				this.vx = -1 * this.vx;
 			}
 
 			if (y - r <= 0) {
@@ -130,5 +128,5 @@
 
 	global.Ball = Ball;
 
-})(this);
+})(typeof global !== 'undefined' ? global : this);
 

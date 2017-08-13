@@ -148,6 +148,7 @@
 
 			context.clearRect(0, 0, this.width, this.height);
 
+
 			if (_IMAGE !== null) {
 
 				let bg_width = _IMAGE.width;
@@ -197,7 +198,7 @@
 			// This flag is set if external code
 			// "wants" to stop the current game
 			// - you know, higher FPS than we can
-			//   compute stuff.
+			//   actually compute stuff.
 
 			if (this._has_ended === false) {
 
@@ -269,6 +270,7 @@
 						// - First Sensor is relative Plane Position
 						// - Second Sensor is relative Goal Position
 						// - Output is "To Flap or Not to Flap"
+
 						let inputs = [ plane.y / this.height, next_goal ];
 						let result = agent.compute(inputs);
 						if (result > 0.5) {
@@ -282,12 +284,14 @@
 					// - update Plane position _AFTERWARDS_
 					// - If FPS > 60, this allows hard
 					//   computation cycles for slow machines
+
 					plane.update(this);
 
 
 					// If Plane died in update() method,
 					// track the Agent fitness. Less computation
 					// intensive than tracking it always.
+
 					if (plane.alive === false) {
 
 						info.alive--;
@@ -370,7 +374,7 @@
 			// This flag is set if external code
 			// "wants" to stop the current game
 			// - you know, higher FPS than we can
-			//   compute stuff.
+			//   actually compute stuff.
 
 			if (this._has_ended === false) {
 
@@ -387,5 +391,5 @@
 
 	global.Game = Game;
 
-})(this);
+})(typeof global !== 'undefined' ? global : this);
 

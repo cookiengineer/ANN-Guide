@@ -60,8 +60,8 @@
 
 				context.drawImage(
 					image,
-					this.x - 1/2 * this.width,
-					this.y - 1/2 * this.height,
+					this.x - 1 / 2 * this.width,
+					this.y - 1 / 2 * this.height,
 					this.width,
 					this.height
 				);
@@ -155,5 +155,5 @@
 
 	global.Paddle = Paddle;
 
-})(this);
+})(typeof global !== 'undefined' ? global : this);
 

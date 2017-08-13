@@ -122,28 +122,6 @@
 
 	Composite.prototype = {
 
-		/*
-		 * ENTITY API
-		 */
-
-		// deserialize: function(blob) {},
-
-		serialize: function() {
-
-			return {
-				'constructor': 'lychee.math.Mersenne',
-				'arguments':   [ this.__seed ],
-				'blob':        null
-			};
-
-		},
-
-
-
-		/*
-		 * CUSTOM API
-		 */
-
 		random: function() {
 
 			return _random_int32.call(this) * (1.0 / 4294967296.0);
@@ -155,5 +133,5 @@
 
 	global.Twister = Composite;
 
-})(this);
+})(typeof global !== 'undefined' ? global : this);
 

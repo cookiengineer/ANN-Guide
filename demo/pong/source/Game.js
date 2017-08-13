@@ -249,7 +249,7 @@
 
 				this._has_ended = false;
 
-                this.update();
+				this.update();
 				this.render();
 
 			}
@@ -270,7 +270,6 @@
 
 			context.fillStyle = '#404552';
 			context.fillRect(0, 0, this.width, this.height);
-			// context.clearRect(0, 0, this.width, this.height);
 
 
 			for (let b = 0, bl = balls.length; b < bl; b++) {
@@ -300,7 +299,7 @@
 			// This flag is set if external code
 			// "wants" to stop the current game
 			// - you know, higher FPS than we can
-			//   compute stuff.
+			//   actually compute stuff.
 
 			if (this._has_ended === false) {
 
@@ -380,10 +379,6 @@
 
 						info.score++;
 
-						/*
-						 * if paddle.y > closest_ball.y then < 0.5 (up)
-						 * if paddle.y < closest_ball.y then > 0.5 (down)
-						 */
 
 						let outputs = [ closest_ball.y / this.height ];
 
@@ -419,7 +414,7 @@
 			// This flag is set if external code
 			// "wants" to stop the current game
 			// - you know, higher FPS than we can
-			//   compute stuff.
+			//   actually compute stuff.
 
 			if (this._has_ended === false) {
 
@@ -436,5 +431,5 @@
 
 	global.Game = Game;
 
-})(this);
+})(typeof global !== 'undefined' ? global : this);
 

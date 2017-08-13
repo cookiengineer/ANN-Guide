@@ -55,8 +55,8 @@
 
 				context.drawImage(
 					_IMAGE,
-					-1/2 * width,
-					-1/2 * height,
+					-1 / 2 * width,
+					-1 / 2 * height,
 					width,
 					height
 				);
@@ -130,5 +130,5 @@
 
 	global.Plane = Plane;
 
-})(this);
+})(typeof global !== 'undefined' ? global : this);
 
