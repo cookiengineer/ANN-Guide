@@ -67,16 +67,19 @@ aside button {
 	border-radius: 4px;
 	transition: all 250ms ease-out;
 	vertical-align: middle;
+	outline: none;
 	cursor: pointer;
 }
 
 aside button:hover,
 aside button:focus {
+	outline: none;
 	background: #677085;
 	transition: all 250ms ease-out;
 }
 
 aside button:active {
+	outline: none;
 	background: #4dadd4;
 	transition: all 0ms ease-out;
 }

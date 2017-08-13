@@ -129,7 +129,7 @@ Game Demo (Manual)
 
 ## Brain Architecture
 
-![flappy-network](./flappy-network.png)
+![flappy-network](/asset/flappy-network.png)
 
 
 ## Live Demo
