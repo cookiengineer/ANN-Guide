@@ -394,27 +394,106 @@ Game Demo (autobattle)
 - track behaviour ("species")
 
 
-## Live Demo
 
-hardmaru's Backprop NEAT
+= NEAT
 
-Link to github
+# NEAT
+
+## NEAT
+
+- Neuro Evolution of Augmenting Topologies
+- Genetic Algorithm that generates ANNs
+- tracks best fitness of evolved solutions
+- uses CPPN (Composition Pattern Producing Network)
 
 
+## NEAT
+
+![neat](/asset/neat.png)
+
+
+## NEAT History
+
+- can predict dominant genes
+- can predict dominant species
+- can predict where to spawn neurons
+- respects diversity with gene history markers
+- tracks crossover history and -speciation
+
+
+## NEAT Agents
+
+- evolutionary simulation
+- tracks agent's fitness
+- tracks agent's dominance
+- tracks agent's history
+
+
+## NEAT Agents
+
+![neat-agents](/asset/neat-agents.png)
+
+
+## Advantages of NEAT
+
+- Adaptive and unsupervised
+- Mutates connections between neurons
+- Mutates nodes (neurons) in locally
+- History markers for better prediction
+
+
+## MarI/O Demo
+
+MarI/O Demo (by Sethbling)
+
+TODO: Link to YouTube
+
+
+
+= Backprop NEAT
+
+# Backprop NEAT
+
+## Backprop NEAT
+
+- ANNs can be backpropagated, too
+- Solves evolution's mutation-rate problem
+
+
+## Backprop NEAT
+
+hardmaru's Backprop NEAT Demo
+
+TODO: Link to GitHub
+
+
+
+
+= HyperNEAT
+
+# HyperNEAT
+
+## HyperNEAT
+
+- Uses HyperCube encoding for inputs
+- Uses HyperCube encoding for neuron connections
+- allows auto-detecting geometric relations
+
+
+## HyperNEAT
+
+![hyperneat](/asset/hyperneat.png)
+
+
+## HyperNEAT
+
+- CPPN now also tracks speciation
+- CPPN is reinforced
+- CPPN sees and predicts relations of inputs to outputs
 
 
 
 = The End
-
-# The End
-
-## Better Concepts
-
-- NEAT
-- HyperNEAT
-- ES-HyperNEAT
-- backpropagated ES-HyperNEAT
-
 
 ## The End
 
