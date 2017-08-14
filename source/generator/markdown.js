@@ -5,40 +5,21 @@ module.exports = (function(global) {
 	 * HELPERS
 	 */
 
-	var _Stream = function(buffer, mode) {
+	const _Stream = function(buffer) {
 
-		this.__buffer = typeof buffer === 'string' ? buffer : '';
-		this.__mode   = typeof mode === 'number'   ? mode   : 0;
+		this.buffer  = typeof buffer === 'string' ? buffer : '';
+		this.pointer = 0;
 
-		this.__index  = 0;
-
-	};
-
-	_Stream.MODE = {
-		read:  0,
-		write: 1
 	};
 
 	_Stream.prototype = {
 
-		toString: function() {
-			return this.__buffer;
-		},
-
-		pointer: function() {
-			return this.__index;
-		},
-
-		length: function() {
-			return this.__buffer.length;
-		},
-
 		read: function(bytes) {
 
-			var buffer = '';
+			let buffer = '';
 
-			buffer       += this.__buffer.substr(this.__index, bytes);
-			this.__index += bytes;
+			buffer       += this.buffer.substr(this.pointer, bytes);
+			this.pointer += bytes;
 
 			return buffer;
 
@@ -46,172 +27,61 @@ module.exports = (function(global) {
 
 		search: function(array) {
 
-			var bytes = Infinity;
+			let bytes   = Infinity;
+			let pointer = this.pointer;
 
-			for (var a = 0, al = array.length; a < al; a++) {
+			array.forEach(token => {
 
-				var token = array[a];
-				var size  = this.__buffer.indexOf(token, this.__index + 1) - this.__index;
+				let size = this.buffer.indexOf(token, pointer + 1) - pointer;
 				if (size > -1 && size < bytes) {
 					bytes = size;
 				}
 
-			}
-
+			});
 
 			if (bytes === Infinity) {
 				return -1;
 			}
-
 
 			return bytes;
 
 		},
 
 		seek: function(bytes) {
-			return this.__buffer.substr(this.__index, bytes);
-		},
-
-		write: function(buffer) {
-
-			this.__buffer += buffer;
-			this.__index  += buffer.length;
-
+			return this.buffer.substr(this.pointer, bytes);
 		}
 
 	};
 
 
 
-	/*
-	 * ENCODER and DECODER
-	 */
+	const _decode_inline = function(text) {
 
-	var _encode_inline = function(entities) {
-
-		var text = '';
-
-
-		entities.forEach(function(entity) {
-
-			if (entity.token === 'Code') {
-
-				text += ' `' + entity.value + '`';
-
-			} else if (entity.token === 'Text') {
-
-				if (entity.value.match(/\.|\,|\?|\!/g)) {
-
-					text += entity.value;
-
-				} else {
-
-					if (entity.type === 'bold') {
-						text += ' **' + entity.value + '**';
-					} else if (entity.type === 'italic') {
-						text += ' *'  + entity.value + '*';
-					} else {
-						text += ' ' + entity.value;
-					}
-
-				}
-
-			} else if (entity.token === 'Image') {
-
-				text += ' ![' + entity.type + '](' + entity.value + ')';
-
-			} else if (entity.token === 'Link') {
-
-				text += ' [' + entity.type + '](' + entity.value + ')';
-
-			}
-
-		});
-
-
-		return text.trim();
-
-	};
-
-	var _encode = function(stream, data) {
-
-		for (var d = 0, dl = data.length; d < dl; d++) {
-
-			var entity = data[d];
-
-			if (entity.token === 'Article') {
-
-				stream.write('\n');
-				stream.write('=');
-				stream.write(' ');
-				stream.write(entity.value);
-				stream.write('\n\n');
-
-			} else if (entity.token === 'Headline') {
-
-				var type = '################'.substr(0, entity.type);
-
-				stream.write(type);
-				stream.write(' ');
-				stream.write(entity.value);
-				stream.write('\n\n');
-
-			} else if (entity.token === 'Code') {
-
-				stream.write('```');
-				stream.write(entity.type || '');
-				stream.write('\n');
-				stream.write(entity.value);
-				stream.write('\n');
-				stream.write('```');
-				stream.write('\n\n');
-
-			} else if (entity.token === 'List') {
-
-				stream.write(entity.value.map(function(val) {
-					return '- ' + _encode_inline(val);
-				}).join('\n'));
-				stream.write('\n\n');
-
-			} else if (entity.token === 'Paragraph') {
-
-				stream.write(_encode_inline(entity.value));
-				stream.write('\n\n');
-
-			}
-
-		}
-
-
-	};
-
-	var _decode_inline = function(text) {
-
-		var entities    = [];
-		var last_entity = null;
+		let entities    = [];
+		let last_entity = null;
 
 
 		text.split(/\s/g).forEach(function(str) {
 
-			var entity = null;
-			var suffix = null;
-			var value  = '';
+			let entity = null;
+			let suffix = null;
+			let value  = '';
 
 
-			if (str.substr(-1).match(/\.|\,|\?|\!/g)) {
+			if (str.substr(-1).match(/\.|,|\?|!/g)) {
 				suffix = str.substr(-1);
 				str    = str.substr(0, str.length - 1);
 			}
 
 
-			var b_code   = str.substr(0, 1) === '`';
-			var e_code   = str.substr(-1) === '`';
-			var b_bold   = str.substr(0, 2) === '**' ;
-			var e_bold   = str.substr(-2) === '**';
-			var b_italic = str.substr(0, 1) === '*';
-			var e_italic = str.substr(-1) === '*';
+			let b_code   = str.substr(0, 1) === '`';
+			let e_code   = str.substr(-1) === '`';
+			let b_bold   = str.substr(0, 2) === '**';
+			let e_bold   = str.substr(-2) === '**';
+			let b_italic = str.substr(0, 1) === '*';
+			let e_italic = str.substr(-1) === '*';
 
-			var i0, i1, i2, i3;
+			let i0, i1, i2, i3;
 
 
 			if (b_code || e_code) {
@@ -267,7 +137,7 @@ module.exports = (function(global) {
 					value: str.substr(1, str.length - 2)
 				};
 
-			} else if (str.substr(0, 1) === '!'){
+			} else if (str.substr(0, 1) === '!') {
 
 				i0 = str.indexOf('[');
 				i1 = str.indexOf(']');
@@ -353,17 +223,18 @@ module.exports = (function(global) {
 
 	};
 
-	var _decode = function(stream) {
+	const _decode = function(stream) {
 
-		var value  = undefined;
-		var seek   = '';
-		var size   = 0;
-		var tmp    = 0;
-		var errors = 0;
-		var check  = null;
+		let value  = undefined;
+		let seek   = '';
+		let size   = 0;
+		let tmp    = 0;
+		let errors = 0;
+		let check  = null;
 
 
-		if (stream.pointer() === 0) {
+		let pointer = stream.pointer;
+		if (pointer === 0) {
 
 			seek = stream.seek(1);
 
@@ -375,7 +246,7 @@ module.exports = (function(global) {
 				value  = [];
 				errors = 0;
 
-				while (errors === 0 && stream.pointer() < stream.length()) {
+				while (errors === 0 && stream.pointer < stream.buffer.length) {
 
 					tmp = _decode(stream);
 
@@ -389,7 +260,7 @@ module.exports = (function(global) {
 
 			}
 
-		} else if (stream.pointer() < stream.length()) {
+		} else if (pointer < stream.buffer.length) {
 
 			seek = stream.seek(1);
 
@@ -481,7 +352,7 @@ module.exports = (function(global) {
 
 				}
 
-			} else if (seek.match(/[A-Za-z0-9\[\!*]/)) {
+			} else if (seek.match(/[A-Za-z0-9[!*]/)) {
 
 				size = stream.search([ '\n\n' ]);
 
@@ -526,58 +397,18 @@ module.exports = (function(global) {
 	};
 
 
+	return function(data) {
 
-	/*
-	 * IMPLEMENTATION
-	 */
-
-	var Module = {
-
-		encode: function(data) {
-
-			data = data instanceof Object ? data : null;
-
-
-			if (data !== null) {
-
-				var stream = new _Stream('', _Stream.MODE.write);
-
-				_encode(stream, data);
-
-				return stream.toString();
-
-			}
-
-
-			return null;
-
-		},
-
-		decode: function(data) {
-
-			data = typeof data === 'string' ? data : null;
-
-
-			if (data !== null) {
-
-				var stream = new _Stream(data, _Stream.MODE.read);
-				var object = _decode(stream);
-				if (object !== undefined) {
-					return object;
-				}
-
-			}
-
-
-			return null;
-
+		let stream = new _Stream(data);
+		let object = _decode(stream);
+		if (object !== undefined) {
+			return object;
 		}
 
+
+		return null;
+
 	};
-
-
-	return Module;
-
 
 })();
 

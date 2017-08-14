@@ -5,10 +5,9 @@ module.exports = (function(global) {
 	 * HELPERS
 	 */
 
+	const _encode_entities = function(value) {
 
-	var _encode_entities = function(value) {
-
-		var text = value;
+		let text = value;
 
 		text = text.split('"').join('&quot;');
 		text = text.split('<').join('&lt;');
@@ -18,12 +17,11 @@ module.exports = (function(global) {
 
 	};
 
-	var _encode_inline = function(entities) {
+	const _encode_inline = function(entities) {
 
-		var text = '';
+		let text = '';
 
-
-		entities.forEach(function(entity) {
+		entities.forEach(entity => {
 
 			if (entity.token === 'Code') {
 
@@ -31,7 +29,7 @@ module.exports = (function(global) {
 
 			} else if (entity.token === 'Text') {
 
-				if (entity.value.match(/\.|\,|\?|\!/g)) {
+				if (entity.value.match(/\.|,|\?|!/g)) {
 
 					text += entity.value;
 
@@ -59,20 +57,19 @@ module.exports = (function(global) {
 
 		});
 
-
 		return text.trim();
 
 	};
 
-	var _encode = function(data) {
+	const _encode = function(data) {
 
-		var code         = '';
-		var article_open = false;
-		var section_open = false;
+		let code         = '';
+		let article_open = false;
+		let section_open = false;
 
-		for (var d = 0, dl = data.length; d < dl; d++) {
 
-			var entry = data[d];
+		data.forEach(entry => {
+
 			if (entry.token === 'Article') {
 
 				if (section_open === true) {
@@ -140,7 +137,7 @@ module.exports = (function(global) {
 
 			}
 
-		}
+		});
 
 
 		if (section_open === true) {
@@ -157,46 +154,7 @@ module.exports = (function(global) {
 	};
 
 
-
-	/*
-	 * IMPLEMENTATION
-	 */
-
-	var Module = {
-
-		encode: function(data) {
-
-			data = data instanceof Object ? data : null;
-
-
-			if (data !== null) {
-				return _encode(data);
-			}
-
-
-			return null;
-
-		},
-
-		decode: function(data) {
-
-			data = typeof data === 'string' ? data : null;
-
-
-			if (data !== null) {
-				// return _decode(data);
-			}
-
-
-			return null;
-
-		}
-
-	};
-
-
-	return Module;
-
+	return _encode;
 
 })();
 

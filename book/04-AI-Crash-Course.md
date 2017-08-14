@@ -25,35 +25,46 @@
 # Genetic Programming Basics
 
 
-## Neural Network Basics
-
-![neural-network](/asset/neural-network.png)
-
-
 ## Genetic Programming
 
 - Idea is to represent states as DNA
 - DNA can be combined with others
 - Imagine DNA as "Arrays of values"
-- DNA can also be weights of Neural Networks :)
 
 
-## Genetic Programming
+## Neural Networks
+
+![neural-network](/asset/neural-network.png)
+
+
+## DNA Serialization
 
 ![genome-nn-weights](/asset/genome-nn-weights.png)
 
 
 ## Genetic Programming
 
-- Randomization always wins (when time is Infinity)
-- Genome DNA split is randomized
 - 2 babies are produced, a son and a daughter
 - 2 babies have each more genes of mother or father
 
 
-## Genetic Programming
+## Breeding
 
 ![genome-nn](/asset/genome-nn.png)
+
+
+## Breeding
+
+- Technically, it's ZW + ZZ genome crossover
+- DNA split is randomized
+- DNA split divides characteristics
+
+
+## Genetic Programming
+
+- DNA is Array of neuron weights
+- Breeding allows inheriting characteristics
+- Breeding allows inheriting behaviours
 
 
 
@@ -69,7 +80,7 @@
 - Phase 3 is Breeding
 
 
-## Evolution Basics
+## Evolution Cycle / Epoche
 
 ![evolution](/asset/evolution.png)
 
@@ -80,7 +91,7 @@
 - Population gets killed and replaced
 - Some of them are Mutants (20%)
 - Some of them are Survivors (20%)
-- Only the best ones get to breed (60%)
+- The best ones get to breed (60%)
 
 
 ## Evolution Basics
@@ -247,8 +258,26 @@ if (whatever < 0.5) {
 
 - You can convert pretty much anything
 - enums, parameters, arguments, strings
+
+
+## Vectorization
+
+```javascript
+if (a > 0.1 && a < 0.2) {
+	// dict entry #1
+} else if (a > 0.2 && a < 0.3) {
+	// dict entry #2
+} else {
+	// etc ...
+}
+```
+
+
+## Vectorization
+
 - Use the power of dictionaries!
 - Get better results with offsets (thresholds)
+- Dictionaries can be external (A)NNs, too.
 
 
 
@@ -354,10 +383,22 @@ Game Demo (autobattle)
 
 - Randomized Neurons, weights and connections
 - Randomization always wins
-- ANN Algorithm analyzes performance
-- ANN Algorithm analyzes behaviour
+- Most ANN algorithms use evolution
 
 
+## ANN Algorithms
+
+- unsupervised evolution cycles
+- relative progress measurement
+- track performance ("fitness")
+- track behaviour ("species")
+
+
+## Live Demo
+
+hardmaru's Backprop NEAT
+
+Link to github
 
 
 

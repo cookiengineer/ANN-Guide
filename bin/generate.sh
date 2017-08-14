@@ -11,5 +11,5 @@ for filename in ./book/*.md; do
 done;
 
 
-node ./bin/generator/index.js "$SLIDES_BOOK";
+node ./source/generator/index.js "$SLIDES_BOOK";
 

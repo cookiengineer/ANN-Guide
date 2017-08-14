@@ -57,22 +57,21 @@
 			<h1>Genetic Programming Basics</h1>
 		</section>
 		<section>
-			<h2>Neural Network Basics</h2>
-			<p>
-				<img src="/asset/neural-network.png" alt="neural-network">
-			</p>
-		</section>
-		<section>
 			<h2>Genetic Programming</h2>
 			<ul>
 				<li>Idea is to represent states as DNA</li>
 				<li>DNA can be combined with others</li>
 				<li>Imagine DNA as "Arrays of values"</li>
-				<li>DNA can also be weights of Neural Networks :)</li>
 			</ul>
 		</section>
 		<section>
-			<h2>Genetic Programming</h2>
+			<h2>Neural Networks</h2>
+			<p>
+				<img src="/asset/neural-network.png" alt="neural-network">
+			</p>
+		</section>
+		<section>
+			<h2>DNA Serialization</h2>
 			<p>
 				<img src="/asset/genome-nn-weights.png" alt="genome-nn-weights">
 			</p>
@@ -80,17 +79,31 @@
 		<section>
 			<h2>Genetic Programming</h2>
 			<ul>
-				<li>Randomization always wins (when time is Infinity)</li>
-				<li>Genome DNA split is randomized</li>
 				<li>2 babies are produced, a son and a daughter</li>
 				<li>2 babies have each more genes of mother or father</li>
 			</ul>
 		</section>
 		<section>
-			<h2>Genetic Programming</h2>
+			<h2>Breeding</h2>
 			<p>
 				<img src="/asset/genome-nn.png" alt="genome-nn">
 			</p>
+		</section>
+		<section>
+			<h2>Breeding</h2>
+			<ul>
+				<li>Technically it's ZW + ZZ genome crossover</li>
+				<li>DNA split is randomized</li>
+				<li>DNA split divides characteristics</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Genetic Programming</h2>
+			<ul>
+				<li>DNA is Array of neuron weights</li>
+				<li>Breeding allows inheriting characteristics</li>
+				<li>Breeding allows inheriting behaviours</li>
+			</ul>
 		</section>
 	</section>
 	<section>
@@ -107,7 +120,7 @@
 			</ul>
 		</section>
 		<section>
-			<h2>Evolution Basics</h2>
+			<h2>Evolution Cycle / Epoche</h2>
 			<p>
 				<img src="/asset/evolution.png" alt="evolution">
 			</p>
@@ -119,7 +132,7 @@
 				<li>Population gets killed and replaced</li>
 				<li>Some of them are Mutants (20%)</li>
 				<li>Some of them are Survivors (20%)</li>
-				<li>Only the best ones get to breed (60%)</li>
+				<li>The best ones get to breed (60%)</li>
 			</ul>
 		</section>
 		<section>
@@ -298,8 +311,24 @@ return false;</code></pre>
 			<ul>
 				<li>You can convert pretty much anything</li>
 				<li>enums parameters, arguments, strings</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Vectorization</h2>
+<pre class="javascript"><code>if (a &gt; 0.1 && a &lt; 0.2) {
+	// dict entry #1
+} else if (a &gt; 0.2 && a &lt; 0.3) {
+	// dict entry #2
+} else {
+	// etc ...
+}</code></pre>
+		</section>
+		<section>
+			<h2>Vectorization</h2>
+			<ul>
 				<li>Use the power of dictionaries!</li>
 				<li>Get better results with offsets (thresholds)</li>
+				<li>Dictionaries can be external (A)NNs, too.</li>
 			</ul>
 		</section>
 	</section>
@@ -417,9 +446,26 @@ return false;</code></pre>
 			<ul>
 				<li>Randomized Neurons, weights and connections</li>
 				<li>Randomization always wins</li>
-				<li>ANN Algorithm analyzes performance</li>
-				<li>ANN Algorithm analyzes behaviour</li>
+				<li>Most ANN algorithms use evolution</li>
 			</ul>
+		</section>
+		<section>
+			<h2>ANN Algorithms</h2>
+			<ul>
+				<li>unsupervised evolution cycles</li>
+				<li>relative progress measurement</li>
+				<li>track performance ("fitness")</li>
+				<li>track behaviour ("species")</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Live Demo</h2>
+			<p>
+				hardmaru's Backprop NEAT
+			</p>
+			<p>
+				Link to github
+			</p>
 		</section>
 	</section>
 	<section>
