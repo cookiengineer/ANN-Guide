@@ -438,7 +438,7 @@ Game Demo (autobattle)
 
 - Adaptive and unsupervised
 - Mutates connections between neurons
-- Mutates nodes (neurons) in locally
+- Mutates nodes (neurons) in locations
 - History markers for better prediction
 
 
@@ -446,7 +446,7 @@ Game Demo (autobattle)
 
 MarI/O Demo (by Sethbling)
 
-TODO: Link to YouTube
+[mario-demo](https://www.youtube.com/watch?v=qv6UVOQ0F44)
 
 
 
@@ -457,15 +457,15 @@ TODO: Link to YouTube
 ## Backprop NEAT
 
 - ANNs can be backpropagated, too
+- Backpropagation will help determine necessary neurons
 - Solves evolution's mutation-rate problem
 
 
 ## Backprop NEAT
 
-hardmaru's Backprop NEAT Demo
+Backprop NEAT Demo (by hardmaru)
 
-TODO: Link to GitHub
-
+[backprop-neat-demo](/media/backprop-neat-js/index.html)
 
 
 
@@ -483,6 +483,13 @@ TODO: Link to GitHub
 ## HyperNEAT
 
 ![hyperneat](/asset/hyperneat.png)
+
+
+## HyperNEAT Demo
+
+HyperNEAT Racers Demo
+
+[hyperneat-racers-demo](https://www.youtube.com/watch?v=TM5OuktuP-w)
 
 
 ## HyperNEAT
