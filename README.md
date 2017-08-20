@@ -35,19 +35,24 @@ or (if on old Macbook) via SimpleHTTPServer.
 - hold on FrankfurtJS December 2015
 - No Video :(
 
-
-## Work in Progress
-
 Reinforcement AI
 
 - not yet held
 - Demo is available at [rawgit.com/.../demo/pong/index.html](https://rawgit.com/cookiengineer/talks/master/demo/pong/index.html)
 - Demo is in folder [demo/pong](./demo/pong)
 
-Evolutionary Reinforcement AI
+[AI Crash Course Part 1](./book/04-AI-Crash-Course.md)
 
-- not yet held
+- hold on Heidelberg AI Meetup August 2017
+
+[AI Crash Course Part 2](./book/04-AI-Crash-Course2.md)
+
+- hold on Heidelberg AI Meetup August 2017
+- Live-Coding Talk, so highly experimental
 - Demo is in folder [demo/pong-evolution](./demo/pong-evolution)
+
+
+## Work in Progress
 
 NEAT Reinforcement AI
 
