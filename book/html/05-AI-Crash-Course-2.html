@@ -91,32 +91,46 @@ python3 -m http.server 1337;
 		</section>
 		<section>
 			<h2>Architecture</h2>
+			<p>
+				<img src="/asset/pong-evolution-architecture.png" alt="pong-evolution-architecture">
+			</p>
+		</section>
+		<section>
+			<h2>Architecture</h2>
+			<p>
+				Live Demo
+			</p>
+			<p>
+				Explain Game Code
+			</p>
 		</section>
 		<section>
 			<h2>Architecture</h2>
 			<ul>
 				<li>Training happens at two places</li>
-				<li>In Game.update() when Paddle hit something</li>
-				<li>In Game.restart() when Paddle didn't hit something</li>
+				<li>In <code>Game.update()</code>  when Paddle hit something</li>
+				<li>In <code>Game.restart()</code>  when Paddle didn't hit something</li>
 				<li>Currently only Reinforcement Learning</li>
 			</ul>
 		</section>
 		<section>
-			<h2>Necessary Steps</h2>
+			<h2>Already-Implemented Steps</h2>
 			<ul>
-				<li><a href="">x</a>  Create Simulation with parallel Game instances</li>
-				<li><a href="">x</a>  Create a Simulation preview switcher</li>
-				<li><a href=""></a> ] Implement Agent.crossover() method</li>
-				<li><a href=""></a>  ] Create an Agent fitness measurement</li>
-				<li><a href=""></a> ] Implement Evolution.cycle() method</li>
-				<li><a href=""></a> ] Hijack Game.restart() method</li>
+				<li>Create Simulation with parallel Game instances</li>
+				<li>Create a Simulation preview switcher</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Live-Coding Steps</h2>
+			<ul>
+				<li>Implement <code>Agent.crossover()</code>  method</li>
+				<li>Create an <code>Agent.fitness</code>  measurement</li>
+				<li>Implement <code>Evolution.cycle()</code>  method</li>
+				<li>Hijack <code>Game.restart()</code>  method</li>
 			</ul>
 		</section>
 	</section>
 	<section>
-		<section>
-			<h1>Agent.crossover()</h1>
-		</section>
 		<section>
 			<h2>Agent.crossover()</h2>
 			<ul>
@@ -124,6 +138,72 @@ python3 -m http.server 1337;
 				<li>Each Brain has a <code>serialize()</code>  method</li>
 				<li>Each Brain has a <code>deserialize()</code>  method</li>
 			</ul>
+		</section>
+		<section>
+			<h2>Agent.crossover()</h2>
+			<ul>
+				<li>Use a random DNA split for weights</li>
+				<li>Weights are serialized using <code>Brain.serialize()</code></li>
+				<li>Return two babies, son and daughter</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h2>Evolution.cycle()</h2>
+			<ul>
+				<li>Each Evolution has multiple generations</li>
+				<li>Generations represent the history of DNA</li>
+				<li>Each cycle / epoche creates new population</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Evolution.cycle()</h2>
+			<ul>
+				<li>Create Survivor Population</li>
+				<li>Create Mutant Population</li>
+				<li>Use <code>Agent.crossover()</code>  for Breed Population</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h2>Simulation.start()</h2>
+			<ul>
+				<li>Modify <code>Simulation.start()</code>  to use Evolution's population</li>
+				<li>Modify <code>Game.start()</code>  to respect evolution</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Simulation.restart()</h2>
+			<ul>
+				<li>Modify <code>Simulation.restart()</code>  to respect evolution</li>
+				<li>Modify <code>Game.restart()</code>  to respect evolution</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Game.update()</h2>
+			<ul>
+				<li>Modify <code>Game.update()</code>  to set <code>Agent.fitness</code></li>
+				<li>Modify <code>Game.restart()</code>  to set <code>Agent.fitness</code></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h2>The End</h2>
+			<p>
+				Questions and Answers
+			</p>
+			<p>
+				<a href="https://github.com/cookiengineer/talks">github.com/cookiengineer/talks</a>
+			</p>
+			<p>
+				<a href="http://artificial.engineering">artificial.engineering</a>
+			</p>
+			<p>
+				<a href="https://lychee.js.org">lychee.js.org</a>
+			</p>
 		</section>
 	</section>
 
