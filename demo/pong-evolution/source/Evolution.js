@@ -52,17 +52,33 @@
 				});
 
 
-				// TODO: 20% Survivor Population
+				let amount = (0.2 * current.length) | 0;
+
+				// 20% Survivor Population
 				// - Agent.clone() leads to unlinked clone
 				// - this avoids coincidence of 1 Agent leading to multiple Entities
 
+				for (let i = 0; i < amount; i++) {
 
-				// TODO: 20% Mutant Population
+					let agent = current[i];
+					let clone = agent.clone();
+
+					population.push(clone);
+
+				}
+
+				// 20% Mutant Population
 				// - new Agent() leads to randomized Brain
+				for (let i = 0; i < amount; i++) {
+					population.push(new Agent());
+				}
+
 
 
 				let b = 0;
-				let b_population = Math.round(0.2 * s_population);
+
+				// TODO: for the reader: Fix this for population size being 13 or so
+				let remaining = ((current.length - population.length) / 2) | 0;
 
 				// TODO: Rest of Breed Population
 				// - b is automatically reset if bigger than 20%
@@ -70,9 +86,23 @@
 				// - best Agent by fitness can now breed
 				// - Babies are the ones from dominant population
 
+				for (let i = 0; i < remaining; i++) {
 
-				// XXX: Remove this crap
-				population = _GENERATIONS[0];
+					let mum = current[b];
+					let dad = current[b + 1];
+
+					// XXX: Alternative: Second genome is random part of population
+					// let dad = current[(Math.random() * current.length) | 0];
+
+					let [ son, daughter ] = mum.crossover(dad);
+
+					population.push(son);
+					population.push(daughter);
+
+					b += 2;
+					b %= amount;
+
+				}
 
 			}
 
