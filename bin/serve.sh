@@ -12,8 +12,7 @@ if [ "$PYTHON3" != "" ]; then
 	cd $SLIDES_ROOT;
 
 	$(cd $SLIDES_ROOT && $PYTHON3 -m http.server 1337) &
-	$(cd $SLIDES_ROOT/demo/flappy-plane && $PYTHON3 -m http.server 1338) &
-	$(cd $SLIDES_ROOT/demo/pong && $PYTHON3 -m http.server 1339) &
+	$(cd $SLIDES_ROOT/demo && $PYTHON3 -m http.server 1338) &
 	wait;
 
 elif [ "$PYTHON2" != "" ]; then
@@ -21,8 +20,7 @@ elif [ "$PYTHON2" != "" ]; then
 	cd $SLIDES_ROOT;
 
 	$(cd $SLIDES_ROOT && $PYTHON2 -m SimpleHTTPServer 1337) &
-	$(cd $SLIDES_ROOT/demo/flappy-plane && $PYTHON2 -m SimpleHTTPServer 1338) &
-	$(cd $SLIDES_ROOT/demo/pong && $PYTHON2 -m SimpleHTTPServer 1339) &
+	$(cd $SLIDES_ROOT/demo && $PYTHON2 -m SimpleHTTPServer 1338) &
 	wait;
 
 fi;
