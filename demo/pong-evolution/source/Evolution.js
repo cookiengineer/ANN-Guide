@@ -1,7 +1,7 @@
 
 (function(global) {
 
-	const _GENERATIONS = [];
+	const _GENERATIONS = global.GENERATIONS = [];
 
 
 	const Evolution = function(data) {

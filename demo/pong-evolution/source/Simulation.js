@@ -26,18 +26,28 @@
 
 		start: function() {
 
-			let evolution = this.evolution;
-			let games     = this.games;
+			let evolution  = this.evolution;
+			let games      = this.games;
+			let population = evolution.cycle();
 
 
-			// TODO: Create new population via evolution.cycle()
-			// TODO: Set each game's population _before_ calling start()
 			// TODO: Make start() reuse population (don't create new one)
+			// TODO: Fix Game.restart() method
 
+			let p = 0;
 
-			for (let g = 0, gl = games.length; g < gl; g++) {
-				games[g].start();
-			}
+			games.forEach(game => {
+
+				game.population = [
+					population[p],
+					population[p + 1]
+				];
+
+				game.start();
+
+				p += 2;
+
+			});
 
 		},
 
