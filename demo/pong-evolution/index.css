@@ -20,7 +20,7 @@ aside {
 	bottom: auto;
 	left: 0px;
 	margin: 0px;
-	padding: 16px;
+	padding: 0px;
 	text-align: center;
 	border-left: 1px solid #2a2c36;
 	background: #333742;
@@ -118,12 +118,10 @@ aside menu > li {
 
 canvas {
 	position: absolute;
-	top: 50%;
-	top: calc(50% + 64px);
+	top: 128px;
 	right: auto;
 	bottom: auto;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	left: auto;
 	border: 1px solid #2a2c36;
 	-webkit-user-select: none;
 	-moz-user-select: none;

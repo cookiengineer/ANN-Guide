@@ -16,14 +16,9 @@
 		<link rel="stylesheet" href="./index.css">
 
 	</head>
-	<body>
-		<aside>
-			<h3>Evolutionary Reinforced Pong</h3>
-			<button onclick="start()">start simulation</button>
-			<button disabled onclick="simulation.setFPS(60)">normal</button>
-			<button disabled onclick="simulation.setFPS(120)">fast</button>
-			<button disabled onclick="simulation.setFPS(360)">hyper</button>
-			<a rel="noopener nofollow" target="_blank" href="https://github.com/cookiengineer/machine-learning-for-dummies">GitHub Repo</a>
+	<body onload="start()">
+		<aside style="padding:0;">
+			<button onclick="do_inspect();">DEBUG</button>
 			<menu></menu>
 		</aside>
 
@@ -45,6 +40,8 @@
 					games:  8
 				});
 
+				simulation.setFPS(300);
+
 
 				simulation.start();
 				simulation.update();
@@ -63,6 +60,16 @@
 			global.start = _start_simulation;
 
 		})(this);
+
+		do_inspect = function() {
+
+			let agent_0 = simulation.games[0].population[1];
+			let agent_1 = simulation.games[1].population[1];
+
+			agent_0.crossover(agent_1);
+
+		};
+
 		</script>
 	</body>
 </html>
