@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>AE Series - Introduction</title>
+
+    <meta name="author" content="Cookie Engineer">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="/design/reveal.css">
+    <link rel="stylesheet" href="/design/code-zenburn.css">
+    <link rel="stylesheet" href="/design/theme-sky.css">
+
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+	<section>
+		<img src="/asset/00-logo.png" width="192" height="192">
+		<h2>Introduction</h2>
+		<p>
+			<a href="http://github.com/Artificial-Engineering">github.com/Artificial-Engineering</a>
+		</p>
+	</section>
+
+	<section>
+		<section>
+			<h1>ANN Guide</h1>
+		</section>
+		<section>
+			<h2>Introduction</h2>
+			<ul>
+				<li>What is Machine Learning?</li>
+				<li>What is Deep Learning?</li>
+				<li>Different Architectures of NNs</li>
+				<li>Why ANNs are so awesome</li>
+			</ul>
+		</section>
+		<section>
+			<h2>What is Machine Learning</h2>
+			<ul>
+				<li>hard to describe, some kind of Buzzword</li>
+				<li>Teaching a Machine to do things itself</li>
+				<li>Teaching a Machine to describe problems itself</li>
+				<li>Teaching a Machine to solve problems itself</li>
+			</ul>
+		</section>
+		<section>
+			<h2>What should it do?</h2>
+			<ul>
+				<li>Problem -> Machine Learning -> Solution</li>
+				<li>Dataset -> Classification -> Yes/No to a question</li>
+				<li>Dataset -> Analysis -> Yes/No to a question</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Basic Training Idea</h2>
+			<ul>
+				<li>Dumb NN -> Training -> Solution</li>
+				<li>Clever NN -> Testing -> Yes/No to a question</li>
+				<li>Training data vs. Test data</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Architectures</h2>
+			<ul>
+				<li>Math sector: NN, ENN, RNN, Q-RNN, CNN (not covered)</li>
+				<li>Biology sector: HTM engine (not covered here)</li>
+				<li>Engineering sector: ANN, NEAT, HyperNEAT, ES/HyperNEAT</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Architectures</h2>
+			<p>
+				I think I'm quite sure I'm in between the Biology and Engineering sector. Around 0.65.
+			</p>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Neural Networks</h1>
+		</section>
+		<section>
+			<h2>Neural Networks</h2>
+			<ul>
+				<li>Idea to build a human brain</li>
+				<li>can figure things out on their own (in a limited way)</li>
+				<li>reward ("good dog!") to identify good things (yes)</li>
+				<li>punish ("bad dog!") to identify bad things (no)</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Neural Networks</h2>
+			<ul>
+				<li>How does a Neural Network look like?</li>
+			</ul>
+			<p>
+				<img src="/asset/neural-network.png" alt="neural-network">
+			</p>
+		</section>
+		<section>
+			<h2>Backpropagation</h2>
+			<ul>
+				<li>Idea: NNs will get better over time by rewards</li>
+				<li>is just a nested loop of two two-dimensional arrays</li>
+				<li>array's 1. dimension is layers (iterate over layers)</li>
+				<li>array's 2. dimension is neurons (iterate over neurons)</li>
+				<li>outer array is previous set of neurons, inner array is current set of neurons</li>
+				<li>If <code>training_function(current_neuron.value)</code>  > <code>0.5</code> , update previous neuron with value</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Neural Networks</h2>
+			<ul>
+				<li>can only work with vectors (0.0 - 1.0)</li>
+				<li>don't question treatment or punishment</li>
+				<li>don't question datasets</li>
+				<li>don't question input vectors</li>
+				<li>don't question output vectors</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Example Neural Network Usage</h2>
+			<p>
+				<img src="/asset/neural-network-usage.png" alt="neural-network-usage">
+			</p>
+		</section>
+		<section>
+			<h2>Problems with Neural Networks</h2>
+			<ul>
+				<li>used as so-called Classifier</li>
+				<li>Dataset for cars has 4 vectors (4 wheels) as inputs</li>
+				<li><a href="">1,1,0,1</a>  or whatever data representation</li>
+				<li>NN gets treatment if found broken car (assuming broken occurs less than working cars)</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Neural Networks</h2>
+			<ul>
+				<li>can be seen as dumb Monkeys wanting a banana</li>
+				<li>don't question their reward</li>
+				<li>don't have a sense of time</li>
+				<li>only know good/bad, no matter how long the timespan</li>
+				<li>overfitting problem</li>
+				<li>first 1000 cars are good means every car is good.</li>
+				<li>Want banana now.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Problems with Classification</h2>
+			<p>
+				<img src="/asset/classification-problem.png" alt="classification-problem">
+			</p>
+		</section>
+		<section>
+			<h2>Problems with Classification</h2>
+			<ul>
+				<li>Datasets can be not finite anymore</li>
+				<li>Let's assume 5000 (insert big number here) 4 wheel cars and 10 cars were 6 wheel cars</li>
+				<li><a href="">1,1,1,1,1,1</a>  is a good car</li>
+				<li><a href="">1,1,1,1,0,0</a>  is a also good car (last 2 vectors not tracked)</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Problems with Changing Datasets</h2>
+			<ul>
+				<li>How to adapt to classifications?</li>
+				<li>How to adapt to new dataset vectors?</li>
+				<li>How to adapt to minimally occuring marginal conditions?</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Evolution Cycles</h1>
+		</section>
+		<section>
+			<h2>Evolution Cycles</h2>
+			<ul>
+				<li>Evolution as Dominance classification</li>
+				<li>"Agents" that compete against each other</li>
+				<li>Best agents get to mate and produce babies</li>
+				<li>Genome (DNA) represents weights of neurons</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Evolution Cycles</h2>
+			<p>
+				<img src="/asset/genome-nn-weights.png" alt="genome-nn-weights">
+			</p>
+		</section>
+		<section>
+			<h2>Evolution Cycles</h2>
+			<ul>
+				<li>Genome DNA split is randomized</li>
+				<li>2 babies are produced, a son and a daughter</li>
+				<li>2 babies have each more of mothers or fathers genes</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Evolution Cycles</h2>
+			<p>
+				<img src="/asset/genome-nn.png" alt="genome-nn">
+			</p>
+		</section>
+		<section>
+			<h2>Evolution Cycles</h2>
+			<ul>
+				<li>Evolution always wins</li>
+				<li>Randomization always wins</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Disadvantages of Evolution Cycles</h2>
+			<ul>
+				<li>Adaptive to "bad seasons" (depressive behaviour)</li>
+				<li>Adaptive to "good seasons" (optimistic behaviour)</li>
+				<li>Needs long time to get better</li>
+				<li>Needs parallelization of hundreds of agents</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Advantages of Evolution Cycles</h2>
+			<ul>
+				<li>Eventually will always come up with correct classifier</li>
+				<li>Adaptive to infinite datasets</li>
+				<li>Adaptive to time-based datasets</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Backpropagation</h1>
+		</section>
+		<section>
+			<h2>Backpropagation</h2>
+			<ul>
+				<li>outer last-hidden-layer-update function</li>
+				<li>typically sigmoid or gaussian (depending on use case)</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Backpropagation</h2>
+			<p>
+				<img src="/asset/backpropagation-sigmoid.png" alt="backpropagation-sigmoid">
+			</p>
+		</section>
+		<section>
+			<h2>Backpropagation</h2>
+			<p>
+				<img src="/asset/backpropagation-gaussian.png" alt="backpropagation-gaussian">
+			</p>
+		</section>
+		<section>
+			<h2>Backpropagation</h2>
+			<ul>
+				<li>If function result is bigger than 0.5, increase neuron value</li>
+				<li>If function result is lower than 0.5, decrease neuron value</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Problems with Backpropagation</h2>
+			<p>
+				<img src="/asset/backpropagation-vector-problem.png" alt="backpropagation-vector-problem">
+			</p>
+		</section>
+		<section>
+			<h2>Problems with Backpropagation</h2>
+			<p>
+				<img src="/asset/backpropagation-input-problem.png" alt="backpropagation-input-problem">
+			</p>
+		</section>
+		<section>
+			<h2>Problems with Backpropagation</h2>
+			<ul>
+				<li>input vectors influence reward function</li>
+				<li>time and occurance problem</li>
+				<li>6 wheels occur less than 4 wheels, but still a car</li>
+				<li>new reward function necessary for bigger set of inputs</li>
+				<li>how to value different rewards for different inputs?</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Recurrent Neural Networks</h1>
+		</section>
+		<section>
+			<h2>Recurrent Neural Networks</h2>
+			<ul>
+				<li>so-called unfolding neural networks</li>
+				<li>hidden layers will unfold in another dimension</li>
+				<li>unfolding leads to sense of time/occurance</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Recurrent Neural Networks</h2>
+			<p>
+				<img src="/asset/recurrent-nn.png" alt="recurrent-nn">
+			</p>
+		</section>
+		<section>
+			<h2>Disadvantages of RNN</h2>
+			<ul>
+				<li>It's super ineffective (computation time gets longer with more datasets)</li>
+				<li>each change in dataset vectors needs manual correction of reward function</li>
+				<li>eventually RNNs will always lead to hacking the reward function</li>
+				<li>mostly RNNs will end up with a single uber strategy</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Advantages of RNN</h2>
+			<ul>
+				<li>can understand labeled data</li>
+				<li>very good at generational stuff</li>
+				<li>generate what you think a cat is</li>
+			</ul>
+		</section>
+		<section>
+			<h2>LSTM Recurrent Neural Network</h2>
+			<ul>
+				<li>Long Short Term Memory RNNs</li>
+				<li>forget data and training that was irrelevant</li>
+				<li>introduces new hidden layers per hidden layer</li>
+				<li>introduces forget gates</li>
+			</ul>
+		</section>
+		<section>
+			<h2>LSTM RNN</h2>
+			<p>
+				<img src="/asset/lstm-rnn.png" alt="lstm-rnn">
+			</p>
+		</section>
+		<section>
+			<h2>LSTM RNN</h2>
+			<ul>
+				<li>additional so called forget gates</li>
+				<li>values close to zero (neuron output) are ignored</li>
+				<li>good at identifying positive values</li>
+				<li>very bad at identifying negative values</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Disadvantages of LSTM RNN</h2>
+			<ul>
+				<li>very good at reoccuring datasets</li>
+				<li>basically the computer variant of captain obvious</li>
+				<li>bad for identifying new strategies</li>
+				<li>new strategies require combination of multiple RNNs (in line or a graph)</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Deep Learning</h1>
+		</section>
+		<section>
+			<h2>Deep Learning</h2>
+			<ul>
+				<li>Combination of Neural Networks</li>
+				<li>focus on having many tiny (easy to compute) NNs</li>
+				<li>tiny NNs aim to exist for one specified purpose</li>
+				<li>tiny NNs are connected to other neural networks</li>
+				<li>each NN's purpose has several inputs</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Deep Learning</h2>
+			<p>
+				<img src="/asset/deep-learning.png" alt="deep-learning">
+			</p>
+		</section>
+		<section>
+			<h2>Disadvantages of Deep Learning</h2>
+			<ul>
+				<li>shitload of NNs and computation time</li>
+				<li>literally only feasable in a server cloud</li>
+				<li>if used with RNNs complexity gets million-fold real fast</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Adaptive Neural Networks</h1>
+		</section>
+		<section>
+			<h2>Adaptive Neural Networks</h2>
+			<ul>
+				<li>randomly creates connections between neurons</li>
+				<li>randomly removes connections between neurons</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Adaptive NNs</h2>
+			<p>
+				<img src="/asset/adaptive-nn.png" alt="adaptive-nn">
+			</p>
+		</section>
+		<section>
+			<h2>Advantages of ANNs</h2>
+			<ul>
+				<li>randomization always wins</li>
+				<li>always better than RNNs without manual influence</li>
+				<li>unsupervised learning is possible</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Disadvantages of ANNs</h2>
+			<ul>
+				<li>cross-talk of neurons can get worse</li>
+				<li>lower efficiency than Evolution (parallelization) concepts</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>NEAT</h1>
+		</section>
+		<section>
+			<h2>NEAT</h2>
+			<ul>
+				<li>Neuro Evolution of Augmenting Topologies</li>
+				<li>uses CPPN (Composition Pattern Producing Network)</li>
+				<li>genetic algorithm that generates ANNs</li>
+				<li>finds best fitness of evolved solutions</li>
+				<li>starts minimally and predicts maximum efficiency in growth</li>
+			</ul>
+		</section>
+		<section>
+			<h2>NEAT</h2>
+			<p>
+				<img src="/asset/neat.png" alt="neat">
+			</p>
+		</section>
+		<section>
+			<h2>NEAT History</h2>
+			<ul>
+				<li>can predict dominant genes</li>
+				<li>can predict dominant species</li>
+				<li>can predict where to spawn neurons</li>
+				<li>respects diversity by gene history markers</li>
+				<li>tracks history, crossover techniques, speciation</li>
+			</ul>
+		</section>
+		<section>
+			<h2>NEAT Agents</h2>
+			<ul>
+				<li>typical NEAT implementation has agents</li>
+				<li>best agents get to make babies based on their fitness</li>
+			</ul>
+		</section>
+		<section>
+			<h2>NEAT Agents</h2>
+			<p>
+				<img src="/asset/neat-agents.png" alt="neat-agents">
+			</p>
+		</section>
+		<section>
+			<h2>Advantages of NEAT</h2>
+			<ul>
+				<li>Adaptive to anything</li>
+				<li>Figures out anything itself, given enough time</li>
+				<li>Mutates connections between neurons (so-called substrates)</li>
+				<li>Mutates nodes (neurons) in locations</li>
+				<li>history markers are awesome for prediction</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>HyperNEAT</h1>
+		</section>
+		<section>
+			<h2>HyperNEAT</h2>
+			<ul>
+				<li>Hypercube based encoding for NEAT</li>
+				<li>CPPN usage (Compositional Pattern Producing NN)</li>
+				<li>Evolutionary algorithms generate neural network</li>
+				<li>Describes patterns of connectivity (called encoding)</li>
+				<li>Describes patterns like symmetry, repetition and variation of substrates</li>
+			</ul>
+		</section>
+		<section>
+			<h2>HyperNEAT</h2>
+			<p>
+				<img src="/asset/hyperneat.png" alt="hyperneat">
+			</p>
+		</section>
+		<section>
+			<h2>HyperNEAT</h2>
+			<ul>
+				<li>4D Hypercube (x1 , x2 , y1 , y2) for substrates</li>
+				<li>2D and 3D space is called a substrate</li>
+			</ul>
+		</section>
+		<section>
+			<h2>HyperNEAT Geometry</h2>
+			<ul>
+				<li>sees and predicts relations of inputs</li>
+			</ul>
+			<p>
+				<img src="/asset/hyperneat-geometry.png" alt="hyperneat-geometry">
+			</p>
+		</section>
+		<section>
+			<h2>Disadvantages of HyperNEAT</h2>
+			<ul>
+				<li>Basically a shitload of necessary pattern data</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Advantages of HyperNEAT</h2>
+			<ul>
+				<li>Awesome prediction of geometric relations</li>
+				<li>Can see if sensors (inputs) are related to each other</li>
+				<li>does not require adaption of reward function</li>
+				<li>does not exploit reward function due to patterns</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>ES-HyperNEAT</h1>
+		</section>
+		<section>
+			<h2>ES-HyperNEAT</h2>
+			<ul>
+				<li>Evolvable substrate HyperNEAT</li>
+				<li>places connections (substrates) automatically</li>
+				<li>respects neuron cloud density</li>
+				<li>respects neuron cloud locations</li>
+				<li>can increase substrates via evolution</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Advantages of ES-HyperNEAT</h2>
+			<ul>
+				<li>exponential growth of neurons via time</li>
+				<li>geometry decides where to place neurons</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>RTES-HyperNEAT</h1>
+		</section>
+		<section>
+			<h2>RTES-HyperNEAT</h2>
+			<ul>
+				<li>Multi-agent implementation of ES-HyperNEAT</li>
+				<li>made for realtime (RT) usage</li>
+				<li>uses limited epoches for dominance of agents</li>
+				<li>best agents produce babies based on fitness</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>lychee.js CARTEL</h1>
+		</section>
+		<section>
+			<h2>lychee.js CARTEL</h2>
+			<ul>
+				<li>botnet size is above 500k+</li>
+				<li>each bot runs thousands of ES-HyperNEATs</li>
+				<li>RTES-HyperNEAT is good, but still static in inputs</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js CARTEL</h2>
+			<ul>
+				<li>Humans have no clue about inputs</li>
+				<li>Humans have no clue about training data</li>
+				<li>Humans have no time for supervised learning</li>
+			</ul>
+		</section>
+		<section>
+			<h2>CARTEL/ES-HyperNEAT</h2>
+			<ul>
+				<li>learns which inputs play a role</li>
+				<li>learns which training data plays a role</li>
+				<li>focus on performance, cache optimization</li>
+				<li>focus on delegation for synchronization</li>
+			</ul>
+		</section>
+		<section>
+			<h2>CARTEL/ES-HyperNEAT</h2>
+			<ul>
+				<li>Clone-Adaptive Real-Time Evolvable Legation</li>
+				<li>adaptive to varying inputs</li>
+				<li>adaptive to legation (voted "don" on each bot)</li>
+				<li>hashing of inputs/outputs with murmur</li>
+				<li>delegating agent clones to do same thing</li>
+				<li>using shadow clones to increase fitness</li>
+			</ul>
+		</section>
+		<section>
+			<h2>CARTEL/ES-HyperNEAT</h2>
+			<p>
+				<img src="/asset/cartel-hyperneat.png" alt="cartel-hyperneat">
+			</p>
+		</section>
+		<section>
+			<h2>CARTEL/ES-HyperNEAT</h2>
+			<ul>
+				<li>decides when randomization is good for evolution</li>
+				<li>agent clones can be targeted with opposite datasets</li>
+				<li>better variance for sigmoid behaviour</li>
+				<li>better variance for gaussian behaviour</li>
+				<li>sigmoid vs. gaussian still has to be evaluated</li>
+			</ul>
+		</section>
+		<section>
+			<h2>CARTEL/ES-HyperNEAT</h2>
+			<ul>
+				<li>Academic work still needs to be done</li>
+				<li>Reference implementation around Sept 2016</li>
+				<li>needs some polishing work</li>
+				<li>needs code decoupling from lychee.js Engine</li>
+				<li>Anybody want to write some papers and help?</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Future Stuff</h2>
+			<ul>
+				<li>Idea is to have a RPPN</li>
+				<li>Reward Pattern Producing Network</li>
+				<li>Goals are hard to determine, given no format of questions</li>
+				<li>Questions need to be serializable</li>
+				<li>No Idea how to achieve that (yet)</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Summary</h1>
+		</section>
+		<section>
+			<h2>Summary</h2>
+			<ul>
+				<li>github.com/cookiengineer/ANN-Guide (this talk)</li>
+				<li>github.com/Artificial-Engineering/lycheejs (reference implementation)</li>
+				<li>github.com/Artificial-Engineering/lycheejs-cartel (academic stuff, zero content by now)</li>
+			</ul>
+		</section>
+	</section>
+
+
+</div>
+</div>
+
+<script src="/source/head.min.js"></script>
+<script src="/source/reveal.js"></script>
+<script src="/source/preview.js"></script>
+
+</body>
+</html>

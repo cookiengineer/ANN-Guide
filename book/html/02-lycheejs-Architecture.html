@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>AE Series - lycheejs-Architecture</title>
+
+    <meta name="author" content="Cookie Engineer">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="/design/reveal.css">
+    <link rel="stylesheet" href="/design/code-zenburn.css">
+    <link rel="stylesheet" href="/design/theme-sky.css">
+
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+	<section>
+		<img src="/asset/00-logo.png" width="192" height="192">
+		<h2>lycheejs-Architecture</h2>
+		<p>
+			<a href="http://github.com/Artificial-Engineering">github.com/Artificial-Engineering</a>
+		</p>
+	</section>
+
+	<section>
+		<section>
+			<h1>lychee.js Architecture</h1>
+		</section>
+		<section>
+			<h2>Introduction</h2>
+			<ul>
+				<li>Zynga ESA, World Domination, blabla</li>
+				<li>Founder of lychee.js Engine</li>
+				<li>Founder of Artificial Engineering</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Introduction</h2>
+			<p>
+				Always being asked what the actual fuck I'm doing all the time.
+			</p>
+			<p>
+				<img src="/asset/foreign-language.png" alt="foreign-language">
+			</p>
+		</section>
+		<section>
+			<h2>State of Software</h2>
+			<p>
+				We think programming sucks. This is why.
+			</p>
+		</section>
+		<section>
+			<h2>State of Software</h2>
+			<ul>
+				<li>Repetitive tasks and solutions</li>
+				<li>Non-reusable components</li>
+				<li>Non-reusable architectures</li>
+				<li>Non-reusable cross-platform stuff</li>
+				<li>No standard definition format</li>
+			</ul>
+		</section>
+		<section>
+			<h2>State of Software</h2>
+			<ul>
+				<li>Humans make mistakes</li>
+				<li>Code monkeys always too busy</li>
+				<li>No time to think, must fix</li>
+			</ul>
+			<p>
+				<img src="/asset/repetition.gif" alt="repetition">
+			</p>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Isomorphism</h1>
+		</section>
+		<section>
+			<h2>Isos "equal" and morphe "shape"</h2>
+		</section>
+		<section>
+			<h2>Isomorphism</h2>
+			<ul>
+				<li>Idea to reuse Components</li>
+				<li>Both client/server side</li>
+				<li>Problem with Glue code remains</li>
+				<li>MVC MVVC, MVV-something still shitty</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Isomorphism</h2>
+			<ul>
+				<li>Entity/Component architecture</li>
+				<li>Events as abstraction layer</li>
+				<li>Problems with platform APIs remains</li>
+				<li>Problems with feature detection remains</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Isomorphism</h2>
+			<ul>
+				<li>What about peer-side components?</li>
+				<li>What about console-side components?</li>
+				<li>What about embedded-side components?</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Isomorphism</h2>
+			<ul>
+				<li>No porting HTML5 to OpenGL is bad idea.</li>
+				<li>No neither is bundling a Browser.</li>
+				<li>You can still go for LinuxJS. No, srsly.</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Components everywhere</h1>
+		</section>
+		<section>
+			<h2>Components everywhere</h2>
+			<ul>
+				<li>If Components run everywhere...</li>
+				<li>Why not go Embedded or Mobile?</li>
+				<li>No porting HTML5 is still bad idea.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>You guessed it ...</h2>
+			<ul>
+				<li>Platform-specific code is bad.</li>
+				<li>Glue code is bad, too.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>What to do?</h2>
+			<p>
+				<img src="/asset/what-to-do.png" alt="what-to-do">
+			</p>
+		</section>
+		<section>
+			<h2>What to do?</h2>
+			<ul>
+				<li>Platform Adapters for each platform</li>
+				<li>State-driven APIs for output</li>
+				<li>Event-driven APIs for input</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>lychee.js</h1>
+		</section>
+		<section>
+			<h2>Back to lychee.js</h2>
+			<p>
+				Are you confused already?
+			</p>
+			<p>
+				<img src="/asset/confused.png" alt="confused">
+			</p>
+		</section>
+		<section>
+			<h2>lychee.js Core</h2>
+			<p>
+				<img src="/asset/lycheejs-architecture-01.svg" alt="architecture-01">
+			</p>
+		</section>
+		<section>
+			<h2>lychee.js Core</h2>
+			<p>
+				<img src="/asset/lycheejs-architecture-02.svg" alt="architecture-02">
+			</p>
+		</section>
+		<section>
+			<h2>lychee.js Core</h2>
+			<ul>
+				<li>Definition System</li>
+				<li>Feature Detection at Runtime</li>
+				<li>Entity/Component Architecture</li>
+				<li>Dependency Management</li>
+				<li>Library/Package Management</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js Core</h2>
+			<ul>
+				<li>Environment Sandboxes</li>
+				<li>Build in Builds in Builds</li>
+				<li>Requirement Determination at Runtime</li>
+				<li>Requirement Injection at Runtime</li>
+				<li>Serialization</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js Core</h2>
+<pre class="javascript"><code>let env  = new lychee.Environment();
+let blob = env.serialize();
+
+blob; // { constructor: 'lychee.Environment' ... }</code></pre>
+		</section>
+		<section>
+			<h2>lychee.js Bootstrap</h2>
+			<p>
+				<img src="/asset/lycheejs-architecture-03.svg" alt="architecture-03">
+			</p>
+		</section>
+		<section>
+			<h2>lychee.js Bootstrap</h2>
+			<ul>
+				<li>Definitions can have Attachments</li>
+				<li>No Glue-Code-introducing Asset Loader</li>
+				<li>All Asset Types are implemented in Bootstrap</li>
+				<li>Buffer Config, Font, Music, Sound, Texture, Stuff</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js Bootstrap</h2>
+			<ul>
+				<li>base64 binary, utf8 Encoding</li>
+				<li>Live-Injection of Assets at Runtime</li>
+				<li>Live-Updating of Assets at Runtime</li>
+				<li>Serialization</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js Bootstrap</h2>
+<pre class="javascript"><code>let cfg = new Config('/url/to/Config.json');
+
+cfg.onload = function() {
+	console.log(this.serialize());
+};
+
+cfg.load();</code></pre>
+		</section>
+		<section>
+			<h2>lychee.js Fertilizers</h2>
+			<p>
+				<img src="/asset/lycheejs-architecture-04.svg" alt="architecture-04">
+			</p>
+		</section>
+		<section>
+			<h2>lychee.js Fertilizers</h2>
+			<ul>
+				<li>Platform Adapters aka. Fertilizers</li>
+				<li>Each Fertilizer ships multiple Runtimes</li>
+				<li>Runtimes implement API against Fertilizer API</li>
+				<li>e.g <code>html</code> , <code>html-webgl</code>  or <code>html-webview</code>  platform</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js Fertilizers</h2>
+			<ul>
+				<li>Input Renderer, Storage, Viewport</li>
+				<li>net.Client net.Remote, net.Server</li>
+				<li>State-driven Output (e.g. Renderer)</li>
+				<li>Event-driven Input (e.g. Viewport)</li>
+				<li>Event-driven Network (peer-to-peer Services)</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js Fertilizers</h2>
+			<p>
+				Example: <code>html-webview</code>  ships all at once:
+			</p>
+			<ul>
+				<li>Android</li>
+				<li>BlackberryOS</li>
+				<li>iOS</li>
+				<li>FirefoxOS</li>
+				<li>Ubuntu Touch</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js Adapter Instances</h2>
+			<p>
+				<img src="/asset/lycheejs-architecture-05.svg" alt="architecture-05">
+			</p>
+		</section>
+		<section>
+			<h2>lychee.js Adapter Instances</h2>
+			<ul>
+				<li>e.g Renderer, Viewport, Input etc.</li>
+				<li>Identical API across all platforms</li>
+				<li>Serialization</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js Adapter Instances</h2>
+<pre class="javascript"><code>let blob  = MAIN.input.serialize();
+let clone = lychee.deserialize(blob);
+
+clone; // Identical lychee.Input instance</code></pre>
+		</section>
+		<section>
+			<h2>BOOM!</h2>
+			<ul>
+				<li>All things Network is serialized</li>
+				<li>All things Input is serialized</li>
+				<li>All things Output is serialized</li>
+				<li>We can now simulate somewhere else :)</li>
+			</ul>
+		</section>
+		<section>
+			<h2>BOOM!</h2>
+			<p>
+				<img src="/asset/cool.png" alt="cool">
+			</p>
+		</section>
+		<section>
+			<h2>lychee.js App State</h2>
+			<p>
+				<img src="/asset/lycheejs-architecture-06.svg" alt="architecture-06">
+			</p>
+		</section>
+		<section>
+			<h2>lychee.js App State</h2>
+			<ul>
+				<li>MV-something is shitty</li>
+				<li>You should start to realize that by now:)</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js App State</h2>
+			<ul>
+				<li>App States divide Logic Differences</li>
+				<li>Scene Graph for App/UI Entities</li>
+				<li>Flow Graph for Event Timeline</li>
+				<li>Net Graph for Network Timeline</li>
+				<li>AI Graph for Simulation Timeline</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js App State</h2>
+			<ul>
+				<li>If Humans make mistake, Snapshot is generated.</li>
+				<li>Snapshot can be simulated everywhere</li>
+				<li>No literally everywhere. Even on a Raspberry Pi!</li>
+				<li>Serialization</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js App State</h2>
+<pre class="javascript"><code>let blob  = lychee.serialize(MAIN);
+let clone = lychee.deserialize(blob);
+
+clone; // Identical app.Main instance</code></pre>
+		</section>
+		<section>
+			<h2>BOOM!</h2>
+			<ul>
+				<li>All things UI serialized</li>
+				<li>All things UX serialized</li>
+				<li>All things Errors serialized</li>
+				<li>All things Flow serialized</li>
+			</ul>
+		</section>
+		<section>
+			<h2>BOOM!</h2>
+			<p>
+				<img src="/asset/cool.png" alt="cool">
+			</p>
+		</section>
+		<section>
+			<h2>lychee.js App Code</h2>
+			<p>
+				<img src="/asset/lycheejs-architecture-07.svg" alt="architecture-07">
+			</p>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>lychee.js Software Bots</h1>
+		</section>
+		<section>
+			<h2>Automate all the things!</h2>
+			<ul>
+				<li>Breeder is Getting-Started CLI Tool</li>
+				<li>Ranger is remote control and watch daemon</li>
+				<li>Harvester is CI / peer-to-peer WebSocket/HTTP server</li>
+				<li>Fertilizer is build toolchain</li>
+				<li>Strainer is refactoring and linting tool</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js Cultivator Tools</h2>
+			<ul>
+				<li>Editor is drag-n-drop GUI editing Tool</li>
+				<li>Sprite Tool generates Sprites automatically</li>
+				<li>Font Tool generates Fonts automatically</li>
+			</ul>
+		</section>
+		<section>
+			<h2>lychee.js Project</h2>
+			<ul>
+				<li><a href="https://lychee.js.org">lychee.js.org</a></li>
+				<li><a href="https://github.com/Artificial-Engineering">github.com/Artificial-Engineering</a></li>
+			</ul>
+		</section>
+	</section>
+
+
+</div>
+</div>
+
+<script src="/source/head.min.js"></script>
+<script src="/source/reveal.js"></script>
+<script src="/source/preview.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>AE Series - Evolutionary-AI</title>
+
+    <meta name="author" content="Cookie Engineer">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="/design/reveal.css">
+    <link rel="stylesheet" href="/design/code-zenburn.css">
+    <link rel="stylesheet" href="/design/theme-sky.css">
+
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+	<section>
+		<img src="/asset/00-logo.png" width="192" height="192">
+		<h2>Evolutionary-AI</h2>
+		<p>
+			<a href="http://github.com/Artificial-Engineering">github.com/Artificial-Engineering</a>
+		</p>
+	</section>
+
+	<section>
+		<section>
+			<h1>Evolutionary AI</h1>
+		</section>
+		<section>
+			<h2>Meta Talk</h2>
+			<ul>
+				<li>Evolutionary AI guy</li>
+				<li>"Ghetto AI" creator</li>
+				<li>lychee.js Engine</li>
+				<li>artificial.engineering</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Meta Talk</h2>
+			<p>
+				I prefer backpropagated ES/HyperNEAT over everything (including sleep), but this is an Absolute Beginner-Level talk.
+			</p>
+		</section>
+		<section>
+			<h2>Meta Talk</h2>
+			<ul>
+				<li>What is Machine Learning?</li>
+				<li>What is Artificial Intelligence?</li>
+				<li>Self-Improving AI Idea</li>
+			</ul>
+		</section>
+		<section>
+			<h2>In-Depth Talk</h2>
+			<ul>
+				<li>Reinforcement Learning Basics</li>
+				<li>Genetic Programming Basics</li>
+				<li>Evolution Basics</li>
+				<li>Competitive Environments</li>
+				<li>Multi-Agent Systems</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Disclaimer</h2>
+			<ul>
+				<li>I am a practical AI guy</li>
+				<li>I use CARTEL-ES/HyperNEAT</li>
+				<li>I love automated labor</li>
+				<li>I hate manual labor</li>
+				<li>I also do hate maths and doctors</li>
+				<li>ML guys probably hate me anyways</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Disclaimer</h2>
+			<p>
+				I tend to say fuck a lot. At least I'm honest 'bout it.
+			</p>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Meta Talk</h1>
+		</section>
+		<section>
+			<h2>What is Machine Learning</h2>
+			<ul>
+				<li>Classification of data(sets)</li>
+				<li>(CNNs) Image Recognition</li>
+				<li>(CNNs) Generation of average models</li>
+				<li>(RNNs) Prediction of time-sensitive data</li>
+				<li>(DQNs) Memory- and Time-Sensitivity</li>
+				<li>From AI Perspective: sensors / filters</li>
+			</ul>
+		</section>
+		<section>
+			<h2>What is Artificial Intelligence</h2>
+			<ul>
+				<li>Strategical Decision</li>
+				<li><b>not</b>  Classification</li>
+				<li>means: I have no idea on the topic</li>
+				<li>I <b>assume</b>  from other learned topics</li>
+				<li>I <b>combine</b>  knowledge from other topics</li>
+			</ul>
+		</section>
+		<section>
+			<h2>What is Artificial Intelligence</h2>
+			<ul>
+				<li>Most people think AI is here</li>
+				<li>Actually - it's not</li>
+				<li>Most "AIs" are statistical systems</li>
+				<li>Most "AIs" are not self-improving</li>
+				<li>Most "AIs" are coded by hand</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Self-Improving AI</h2>
+			<ul>
+				<li>So-called "Goedel Machine"</li>
+				<li>An AI that can (re-)write its own code</li>
+				<li>An AI that can adapt to new scenarios</li>
+				<li>An AI that can learn from previous scenarios</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Self-Improving AI</h2>
+			<ul>
+				<li>Supervised Systems (Reinforcement)</li>
+				<li>Unsupervised Systems (Evolutionary)</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Reinforcement Basics</h1>
+		</section>
+		<section>
+			<h2>Reinforcement Basics</h2>
+			<ul>
+				<li>Idea is to train an NN with dataset</li>
+				<li>reward for good results</li>
+				<li>punish for bad results</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Reinforcement Basics</h2>
+			<ul>
+				<li>Backpropagation algorithm</li>
+				<li>given input</li>
+				<li>expected output (or labels in dataset)</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Reinforcement Basics</h2>
+			<p>
+				Error function is calculating the delta between given output and expected output (similar to integral approximations).
+			</p>
+		</section>
+		<section>
+			<h2>Reinforcement Basics</h2>
+			<ul>
+				<li>Gradient calculation for each step is inefficient</li>
+				<li>Gradient boosting</li>
+				<li>Basic concept is to predict the gradient</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Live Demo</h2>
+			<p>
+				Game Demo (autobattle)
+			</p>
+			<p>
+				<a href="http://tiny.cc/reinforced-pong">tiny.cc/reinforced-pong</a>
+			</p>
+		</section>
+		<section>
+			<h2>Problems with the Game</h2>
+			<ul>
+				<li>Math.random() helps learning</li>
+				<li>Always competitive scenarios</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Problems with Reinforcement</h2>
+			<ul>
+				<li>No enemy means no improvement</li>
+				<li>No failure means no improvement</li>
+				<li>Always tries to "hack" rewards</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Problems with Reinforcement</h2>
+			<ul>
+				<li>Analytical model</li>
+				<li>NOT a generational model</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Genetic Programming Basics</h1>
+		</section>
+		<section>
+			<h2>Neural Network Basics</h2>
+			<p>
+				<img src="/asset/neural-network.png" alt="neural-network">
+			</p>
+		</section>
+		<section>
+			<h2>Neural Network Genomes</h2>
+			<p>
+				<img src="/asset/genome-nn-weights.png" alt="genome-nn-weights">
+			</p>
+		</section>
+		<section>
+			<h2>Genetic Programming</h2>
+			<ul>
+				<li>Idea is to represent data as DNA</li>
+				<li>DNA can be combined with others</li>
+				<li>Imagine DNA as an "Array of values"</li>
+				<li>Values can also be weights of an NN :)</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Genetic Programming</h2>
+			<ul>
+				<li>Randomization always wins</li>
+				<li>Genome DNA split is randomized</li>
+				<li>2 babies are produced, a son and a daughter</li>
+				<li>2 babies have each more of mothers or fathers genes</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Genetic Programming</h2>
+			<p>
+				<img src="/asset/genome-nn.png" alt="genome-nn">
+			</p>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Evolution Basics</h1>
+		</section>
+		<section>
+			<h2>Evolution Basics</h2>
+			<ul>
+				<li>Evolution has three phases</li>
+				<li>Phase 1 is Training</li>
+				<li>Phase 2 is Evaluation</li>
+				<li>Phase 3 is Breeding</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Evolution Basics</h2>
+			<p>
+				<img src="/asset/evolution.png" alt="evolution">
+			</p>
+		</section>
+		<section>
+			<h2>Evolution Basics</h2>
+			<ul>
+				<li>After each Epoche / Cycle:</li>
+				<li>Population gets killed and replaced</li>
+				<li>Some of them are Mutants</li>
+				<li>Some of them are Survivors</li>
+				<li>Only the best ones get to breed</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Competitive Environments</h2>
+			<ul>
+				<li>Multi-Agent System</li>
+				<li>Competitive Environment</li>
+				<li>Agents get rewarded or punished</li>
+				<li>Agent has fitness as status</li>
+				<li>Best fitness gets to multiply</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Live Demo</h2>
+			<p>
+				Game Demo (Manual)
+			</p>
+			<p>
+				<a href="http://tiny.cc/flappy-plane">tiny.cc/flappy-plane</a>
+			</p>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Architecture</h1>
+		</section>
+		<section>
+			<h2>Architecture</h2>
+			<ul>
+				<li>Evolution has an interval / timeout</li>
+				<li>Population is an array of Agents</li>
+				<li>Each Generation represents one Evolution Cycle</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Agent Architecture</h2>
+			<ul>
+				<li>Each Agent has a brain (FFNN)</li>
+				<li>Each Agent controls an Entity</li>
+				<li>Each Agent has a fitness property</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Brain Architecture</h2>
+			<ul>
+				<li>Sensor 1: Center (position.y) of Plane</li>
+				<li>Sensor 2: Center (position.y) of next Goal</li>
+				<li>Control 1: calls method Plane.flap()</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Brain Architecture</h2>
+			<ul>
+				<li>2 Input Neurons</li>
+				<li>2 Hidden Layers (a 2 Neurons)</li>
+				<li>1 Output Neuron</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Live Demo</h2>
+			<p>
+				Game Demo (Autopilot)
+			</p>
+			<p>
+				Code Explanations
+			</p>
+			<p>
+				<a href="http://tiny.cc/flappy-plane">tiny.cc/flappy-plane</a>
+			</p>
+		</section>
+		<section>
+			<h2>Problems with the Game</h2>
+			<ul>
+				<li>Math.random() is unfair</li>
+				<li>No stepped hurdles</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Problems with Evolution</h2>
+			<ul>
+				<li>Mutation Rate good at start</li>
+				<li>Mutation Rate bad at end</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Problems with Breeding</h2>
+			<ul>
+				<li>No Behavioural Analysis</li>
+				<li>No Tracking of DNA History</li>
+				<li>No Tracking of Performance</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>The End</h1>
+		</section>
+		<section>
+			<h2>Better Concepts</h2>
+			<ul>
+				<li>NEAT</li>
+				<li>HyperNEAT</li>
+				<li>ES-HyperNEAT</li>
+				<li>backpropagated ES-HyperNEAT</li>
+			</ul>
+		</section>
+		<section>
+			<h2>The End</h2>
+			<p>
+				Questions and Answers
+			</p>
+			<p>
+				<a href="https://github.com/cookiengineer/talks">github.com/cookiengineer/talks</a>
+			</p>
+			<p>
+				<a href="http://artificial.engineering">artificial.engineering</a>
+			</p>
+			<p>
+				<a href="https://lychee.js.org">lychee.js.org</a>
+			</p>
+		</section>
+	</section>
+
+
+</div>
+</div>
+
+<script src="/source/head.min.js"></script>
+<script src="/source/reveal.js"></script>
+<script src="/source/preview.js"></script>
+
+</body>
+</html>
