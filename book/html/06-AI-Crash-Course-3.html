@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>AE Series - AI-Crash-Course-2</title>
+    <title>AE Series - AI-Crash-Course-3</title>
 
     <meta name="author" content="Cookie Engineer">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -23,7 +23,7 @@
 
 	<section>
 		<img src="/asset/00-logo.png" width="192" height="192">
-		<h2>AI-Crash-Course-2</h2>
+		<h2>AI-Crash-Course-3</h2>
 		<p>
 			<a href="http://github.com/Artificial-Engineering">github.com/Artificial-Engineering</a>
 		</p>
@@ -36,7 +36,7 @@
 		<section>
 			<h2>Meta Talk</h2>
 			<ul>
-				<li>This is part 2 of AI Crash Course.</li>
+				<li>This is part 3 of AI Crash Course.</li>
 				<li>Sweet (destructive) live coding.</li>
 				<li>Yes I'm @cookiengineer. Blabla.</li>
 			</ul>
@@ -76,16 +76,24 @@ python3 -m http.server 1337;
 		<section>
 			<h2>Architecture</h2>
 			<ul>
-				<li>Live-Coding project is in <code>./homework/pong</code></li>
+				<li>Live-Coding project is in <code>./homework/pong-evolution</code></li>
 				<li>ES2017 so pretty much Chromium only</li>
 			</ul>
 		</section>
 		<section>
 			<h2>Architecture</h2>
 			<ul>
+				<li>One Simulation has one Evolution</li>
+				<li>One Simulation has multiple Games</li>
 				<li>Each Game has multiple Agents</li>
 				<li>Each Agent has one Brain</li>
 			</ul>
+		</section>
+		<section>
+			<h2>Architecture</h2>
+			<p>
+				<img src="/asset/pong-evolution-architecture.png" alt="pong-evolution-architecture">
+			</p>
 		</section>
 		<section>
 			<h2>Architecture</h2>
@@ -96,7 +104,7 @@ python3 -m http.server 1337;
 				Game Demo
 			</p>
 			<p>
-				<a href="http://tiny.cc/reinforced-pong">tiny.cc/reinforced-pong</a>
+				<a href="http://tiny.cc/evolutionary-pong">tiny.cc/evolutionary-pong</a>
 			</p>
 		</section>
 		<section>
@@ -105,41 +113,82 @@ python3 -m http.server 1337;
 				<li>Training happens at two places</li>
 				<li>In <code>Game.update()</code>  when Paddle hit something</li>
 				<li>In <code>Game.restart()</code>  when Paddle didn't hit something</li>
+				<li>Currently only Reinforcement Learning</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Already-Implemented Steps</h2>
+			<ul>
+				<li>Create Simulation with parallel Game instances</li>
+				<li>Create a Simulation preview switcher</li>
 			</ul>
 		</section>
 		<section>
 			<h2>Live-Coding Steps</h2>
 			<ul>
-				<li>Implement <code>Brain.learn()</code>  method</li>
-				<li>Implement <code>Brain.compute()</code>  method</li>
+				<li>Implement <code>Agent.crossover()</code>  method</li>
+				<li>Create an <code>Agent.fitness</code>  measurement</li>
+				<li>Implement <code>Evolution.cycle()</code>  method</li>
 				<li>Hijack <code>Game.restart()</code>  method</li>
 			</ul>
 		</section>
 	</section>
 	<section>
 		<section>
-			<h2>Brain.compute()</h2>
+			<h2>Agent.crossover()</h2>
 			<ul>
-				<li>Each Brain has a <code>compute(inputs)</code>  method</li>
-				<li>Simple FFNN needs to be implemented</li>
-				<li>Return the computed output neuron values</li>
+				<li>Each Agent has a Brain.</li>
+				<li>Each Brain has a <code>serialize()</code>  method</li>
+				<li>Each Brain has a <code>deserialize()</code>  method</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Agent.crossover()</h2>
+			<ul>
+				<li>Use a random DNA split for weights</li>
+				<li>Weights are serialized using <code>Brain.serialize()</code></li>
+				<li>Return two babies, son and daughter</li>
 			</ul>
 		</section>
 	</section>
 	<section>
 		<section>
-			<h2>Brain.learn()</h2>
+			<h2>Evolution.cycle()</h2>
 			<ul>
-				<li>Each Brain has a <code>learn(inputs</code> , <code>outputs)</code>  method</li>
-				<li>Backpropagation needs to be implemented</li>
+				<li>Each Evolution has multiple generations</li>
+				<li>Generations represent the history of DNA</li>
+				<li>Each cycle / epoche creates new population</li>
 			</ul>
 		</section>
 		<section>
-			<h2>Brain.learn()</h2>
+			<h2>Evolution.cycle()</h2>
 			<ul>
-				<li>Implement each neuron's <code>weights[]</code>  property</li>
-				<li>Implement each neuron's <code>gradient[]</code>  property</li>
-				<li>Implement the error function</li>
+				<li>Create Survivor Population</li>
+				<li>Create Mutant Population</li>
+				<li>Use <code>Agent.crossover()</code>  for Breed Population</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h2>Simulation.start()</h2>
+			<ul>
+				<li>Modify <code>Simulation.start()</code>  to use Evolution's population</li>
+				<li>Modify <code>Game.start()</code>  to respect evolution</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Simulation.restart()</h2>
+			<ul>
+				<li>Modify <code>Simulation.restart()</code>  to respect evolution</li>
+				<li>Modify <code>Game.restart()</code>  to respect evolution</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Game.update()</h2>
+			<ul>
+				<li>Modify <code>Game.update()</code>  to set <code>Agent.fitness</code></li>
+				<li>Modify <code>Game.restart()</code>  to set <code>Agent.fitness</code></li>
 			</ul>
 		</section>
 	</section>

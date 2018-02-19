@@ -43,21 +43,14 @@ python3 -m http.server 1337;
 
 ## Architecture
 
-- Live-Coding project is in `./demo/pong-evolution`
+- Live-Coding project is in `./homework/pong`
 - ES2017, so pretty much Chromium only
 
 
 ## Architecture
 
-- One Simulation has one Evolution
-- One Simulation has multiple Games
 - Each Game has multiple Agents
 - Each Agent has one Brain
-
-
-## Architecture
-
-![pong-evolution-architecture](/asset/pong-evolution-architecture.png)
 
 
 ## Architecture
@@ -66,7 +59,7 @@ Live Demo
 
 Game Demo
 
-[tiny.cc/evolutionary-pong](http://tiny.cc/evolutionary-pong)
+[tiny.cc/reinforced-pong](http://tiny.cc/reinforced-pong)
 
 
 ## Architecture
@@ -74,74 +67,36 @@ Game Demo
 - Training happens at two places
 - In `Game.update()` when Paddle hit something
 - In `Game.restart()` when Paddle didn't hit something
-- Currently only Reinforcement Learning
-
-
-## Already-Implemented Steps
-
-- Create Simulation with parallel Game instances
-- Create a Simulation preview switcher
 
 
 ## Live-Coding Steps
 
-- Implement `Agent.crossover()` method
-- Create an `Agent.fitness` measurement
-- Implement `Evolution.cycle()` method
+- Implement `Brain.learn()` method
+- Implement `Brain.compute()` method
 - Hijack `Game.restart()` method
 
 
-= Agent
+= Brain
 
-## Agent.crossover()
+## Brain.compute()
 
-- Each Agent has a Brain.
-- Each Brain has a `serialize()` method
-- Each Brain has a `deserialize()` method
-
-
-## Agent.crossover()
-
-- Use a random DNA split for weights
-- Weights are serialized using `Brain.serialize()`
-- Return two babies, son and daughter
+- Each Brain has a `compute(inputs)` method
+- Simple FFNN needs to be implemented
+- Return the computed output neuron values
 
 
-= Evolution
+= Brain
 
-## Evolution.cycle()
+## Brain.learn()
 
-- Each Evolution has multiple generations
-- Generations represent the history of DNA
-- Each cycle / epoche creates new population
+- Each Brain has a `learn(inputs, outputs)` method
+- Backpropagation needs to be implemented
 
+## Brain.learn()
 
-## Evolution.cycle()
-
-- Create Survivor Population
-- Create Mutant Population
-- Use `Agent.crossover()` for Breed Population
-
-
-= Simulation
-
-## Simulation.start()
-
-- Modify `Simulation.start()` to use Evolution's population
-- Modify `Game.start()` to respect evolution
-
-
-## Simulation.restart()
-
-- Modify `Simulation.restart()` to respect evolution
-- Modify `Game.restart()` to respect evolution
-
-
-## Game.update()
-
-- Modify `Game.update()` to set `Agent.fitness`
-- Modify `Game.restart()` to set `Agent.fitness`
-
+- Implement each neuron's `weights[]` property
+- Implement each neuron's `gradient[]` property
+- Implement the error function
 
 
 = The End

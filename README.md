@@ -39,10 +39,19 @@ or (if on old Macbook) via SimpleHTTPServer.
 [AI Crash Course Part 1](./book/04-AI-Crash-Course.md)
 
 - hold on Heidelberg AI Meetup August 2017
+- hold at Hackmind AI Februar 2018
 
-[AI Crash Course Part 2](./book/04-AI-Crash-Course-2.md)
+[AI Crash Course Part 2](./book/05-AI-Crash-Course-2.md)
 
 - hold on Heidelberg AI Meetup August 2017
+- hold at Hackmind AI Februar 2018
+- Live-Coding Talk, so highly experimental
+- Demo is available at [rawgit.com/.../demo/pong/index.html](https://rawgit.com/cookiengineer/talks/master/demo/pong/index.html)
+- Demo is in folder [demo/pong](./demo/pong)
+
+[AI Crash Course Part 3](./book/06-AI-Crash-Course-3.md)
+
+- hold at Hackmind AI Februar 2018
 - Live-Coding Talk, so highly experimental
 - Demo is available at [rawgit.com/.../demo/pong-evolution/index.html](https://rawgit.com/cookiengineer/talks/master/demo/pong-evolution/index.html)
 - Demo is in folder [demo/pong-evolution](./demo/pong-evolution)
