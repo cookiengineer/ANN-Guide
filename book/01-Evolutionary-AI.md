@@ -42,7 +42,7 @@ this is an Absolute Beginner-Level talk.
 ## Disclaimer
 
 I tend to say fuck a lot.
-At least I'm honest 'bout it.
+At least I'm honest about it.
 
 
 = Meta Talk
