@@ -65,17 +65,17 @@ At least I'm honest about it.
 - Some of them are Survivors
 - Only the best ones get to breed
 
-## Genetic Programming
+## Evolution Basics
 
 ![genome-nn](/asset/genome-nn.png)
 
 ## Evolution Basics
 
-- Multi-Agent System
-- Competitive Environment
+- Always a Multi-Agent system
+- Always a competitive environment
 - Agent gets rewarded or punished
 - Agent has fitness as status
-- Best fitness gets to multiply
+- Fittest agents get to breed/multiply
 
 
 = NEAT
@@ -94,6 +94,13 @@ At least I'm honest about it.
 - learns the behaviour of ANNs
 - learns the performance of ANNs
 
+## NEAT
+
+- is technically an unsupervised system
+- adapts to new problems and datasets
+- understands relations of problems and solutions
+- remembers solutions in the form of DNA (genes)
+
 
 = Network
 
@@ -102,13 +109,19 @@ At least I'm honest about it.
 ## Network
 
 - Neural Network is adaptive
-- Per-neuron graph structure
+- Per-Neuron graph structure
 - Neurons have multiple connections
 - Connections have weights
 
 ## Network
 
 ![adaptive-nn](/asset/adaptive-nn.png)
+
+## Network
+
+- is not data-specific
+- only requires input matrix / input array
+- bias neuron is an "always on" node
 
 ## Network
 
@@ -142,6 +155,13 @@ At least I'm honest about it.
 - keeps track of current species
 - keeps track of current genome(s)
 - keeps track of maximum fitness(es)
+
+## Pool
+
+- Multiple Species represent a Pool
+- measures Species by fitness / average fitness
+- sorts Species by performance
+- sorts Species by behaviour/complexity
 
 
 = Species
