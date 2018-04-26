@@ -57,31 +57,34 @@
 
 		crossover: function(agent) {
 
-			let weights_mum = this.brain.serialize();
-			let weights_dad = agent.brain.serialize();
-			let dna_split   = (Math.random() * weights_mum.length) | 0;
-			let babies      = [ new Agent(), new Agent() ];
-			let weights_son = [];
-			let weights_daughter = [];
+			let brain1 = this.brain.serialize();
+			let brain2 = agent.brain.serialize();
+			let brain3 = [];
+			let brain4 = [];
+
+			let split    = Math.floor(Math.random() * brain1.length);
+			let daughter = new Agent();
+			let son      = new Agent();
 
 
-			for (let i = 0; i < weights_mum.length; i++) {
+			for (let b = 0; b < brain1.length; b++) {
 
-				if (i < dna_split) {
-					weights_son[i] = weights_dad[i];
-					weights_daughter[i] = weights_mum[i];
+				if (b < split) {
+					brain3.push(brain1[b]);
+					brain4.push(brain2[b]);
 				} else {
-					weights_son[i] = weights_mum[i];
-					weights_daughter[i] = weights_dad[i];
+					brain3.push(brain2[b]);
+					brain4.push(brain1[b]);
 				}
 
 			}
 
-			babies[0].brain.deserialize(weights_son);
-			babies[1].brain.deserialize(weights_daughter);
+
+			daughter.brain.deserialize(brain3);
+			son.brain.deserialize(brain4);
 
 
-			return babies;
+			return [ daughter, son ];
 
 		}
 

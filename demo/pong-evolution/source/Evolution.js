@@ -39,70 +39,61 @@
 
 			} else {
 
-				let current = _GENERATIONS[_GENERATIONS.length - 1];
-
 				// Sort the current Population
 				// - Higher fitness first (to 0)
 				// - Lower fitness last (to length - 1)
 
-				current.sort(function(agent_a, agent_b) {
+				let current        = _GENERATIONS[_GENERATIONS.length - 1];
+				let old_population = current.sort(function(agent_a, agent_b) {
 					if (agent_a.fitness > agent_b.fitness) return -1;
 					if (agent_a.fitness < agent_b.fitness) return  1;
 					return 0;
 				});
 
 
-				let amount = (0.2 * current.length) | 0;
+				let amount = (0.25 * s_population);
 
-				// 20% Survivor Population
+				// 25% Mutant Population
+				// - new Agent() leads to randomized Brain
+				for (let m = 0; m < amount; m++) {
+					population.push(new Agent());
+				}
+
+
+				// 25% Survivor Population
 				// - Agent.clone() leads to unlinked clone
 				// - this avoids coincidence of 1 Agent leading to multiple Entities
 
-				for (let i = 0; i < amount; i++) {
+				for (let s = 0; s < amount; s++) {
 
-					let agent = current[i];
+					let agent = current[s];
 					let clone = agent.clone();
 
 					population.push(clone);
 
 				}
 
-				// 20% Mutant Population
-				// - new Agent() leads to randomized Brain
-				for (let i = 0; i < amount; i++) {
-					population.push(new Agent());
-				}
 
-
-
-				let b = 0;
-
-				// TODO: for the reader: Fix this for population size being 13 or so
-				let remaining = ((current.length - population.length) / 2) | 0;
-
-				// TODO: Rest of Breed Population
-				// - b is automatically reset if bigger than 20%
-				// - b leads to multiple incest Babies for multiple dominant Agents
+				// 50% Breed Population
 				// - best Agent by fitness can now breed
 				// - Babies are the ones from dominant population
 
-				for (let i = 0; i < remaining; i++) {
+				for (let b = 0; b < amount; b++) {
 
-					let mum = current[b];
-					let dad = current[b + 1];
+					let mum = old_population[b];
+					let dad = old_population[b + 1];
 
-					// XXX: Alternative: Second genome is random part of population
-					// let dad = current[(Math.random() * current.length) | 0];
 
-					let [ son, daughter ] = mum.crossover(dad);
+					let babies = mum.crossover(dad);
 
-					population.push(son);
-					population.push(daughter);
-
-					b += 2;
-					b %= amount;
+					population.push(babies[0]);
+					population.push(babies[1]);
 
 				}
+
+
+				// TODO: Rest of Breed Population
+				// FIXME: If population size is uneven (e.g. 13)
 
 			}
 

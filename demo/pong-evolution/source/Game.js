@@ -379,6 +379,7 @@
 						let outputs = [ closest_ball.y / this.height ];
 
 						agent.learn(inputs, outputs);
+						agent.fitness++;
 
 
 						training.push({

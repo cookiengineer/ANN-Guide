@@ -82,15 +82,18 @@
 			let layers = this.layers;
 
 
-			// Set Input Layer values
+			// Set input layer neuron values
 			layers[0].forEach((neuron, n) => (neuron.value = inputs[n]));
 
 
-			// Feed forward for Hidden Layers + Output Layer
-			layers.slice(1).forEach(layer => {
+			// Feed forward for hidden layers + output layer
+			layers.slice(1).forEach((layer, l) => {
 
-				let prev_layer = layers[layers.indexOf(layer) - 1];
+				let prev_layer = layers[l];
 
+
+				// For each hidden layer neuron, we activate it based on the
+				// weighted connections to each previous layer's neurons
 				layer.forEach(neuron => {
 
 					let values = prev_layer.map((prev, p) => prev.value * neuron.weights[p]);
@@ -100,28 +103,33 @@
 
 				});
 
+
 			});
 
 
-			// return Output Layer values
-			return layers[layers.length - 1].map(neuron => neuron.value);
+			let output_layer = layers[layers.length - 1];
+
+			return output_layer.map(neuron => neuron.value);
 
 		},
 
 		learn: function(inputs, outputs) {
 
+			// "Forward" propagation
 			this.compute(inputs);
 
 
 			let layers = this.layers;
 
-			// Calculate Gradient for Output Layer
-			layers[layers.length - 1].forEach((neuron, n) => {
+			// Calculate gradient for output layer
+			let output_layer = layers[layers.length - 1];
+
+			output_layer.forEach((neuron, n) => {
 				neuron.delta = _error_function(neuron.value, outputs[n]);
 			});
 
 
-			// Calculate Gradient for Hidden Layers + Input Layer
+			// Calculate gradient for hidden layers + input layer
 			layers.slice(0, layers.length - 1).reverse().forEach(layer => {
 
 				let next_layer = layers[layers.indexOf(layer) + 1];
@@ -130,26 +138,27 @@
 				layer.forEach((neuron, n) => {
 
 					let deltas = next_layer.map(next => next.delta * next.weights[n]);
-					let error  = deltas.reduce((a, b) => a + b, 0);
+					let delta  = deltas.reduce((a, b) => a + b, 0);
 
-					neuron.delta = neuron.value * (1 - neuron.value) * error;
+					neuron.delta = neuron.value * (1 - neuron.value) * delta;
 
 				});
 
 			});
 
 
-			// Re-Calculate weights based on Gradient
+			// Re-calculate weights based on gradient
 			layers.forEach((layer, l) => {
 
-				let prev_layer = layers[layers.indexOf(layer) - 1];
+				let prev_layer = layers[l - 1];
+
 
 				layer.forEach(neuron => {
 
 					neuron.bias += _LEARNING_RATE * neuron.delta;
 
 
-					// XXX: Input Layer has no weights
+					// All layers, except input layer (which has no neuron weights)
 					if (l > 0) {
 
 						neuron.weights.forEach((weight, w) => {
@@ -157,8 +166,8 @@
 							let value = prev_layer[w].value;
 							let delta = _LEARNING_RATE * neuron.delta * value;
 
-							neuron.weights[w] += delta + _LEARNING_MOMENTUM * neuron.gradient[w];
-							neuron.gradient[w] = delta;
+							neuron.weights[w]  += delta + _LEARNING_MOMENTUM * neuron.gradient[w];
+							neuron.gradient[w]  = delta;
 
 						});
 

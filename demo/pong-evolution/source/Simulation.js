@@ -30,24 +30,20 @@
 			let games      = this.games;
 			let population = evolution.cycle();
 
+			for (let g = 0; g < games.length; g++) {
 
-			// TODO: Make start() reuse population (don't create new one)
-			// TODO: Fix Game.restart() method
-
-			let p = 0;
-
-			games.forEach(game => {
+				let game = games[g];
 
 				game.population = [
-					population[p],
-					population[p + 1]
+					population[g * 2],
+					population[g * 2 + 1]
 				];
 
 				game.start();
 
-				p += 2;
+			}
 
-			});
+
 
 		},
 
