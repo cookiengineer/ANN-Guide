@@ -19,11 +19,10 @@ this is an Absolute Beginner-Level talk.
 ## Disclaimer
 
 - I am a practical AI guy
-- I use backpropagated CARTEL-ES/HyperBNEAT
+- I use backpropagated and instincted ES/HyperBNEAT
 - I love automated labor
 - I hate manual labor
 - I also do hate maths and doctors
-- ML guys probably hate me anyways
 
 ## Disclaimer
 
@@ -127,53 +126,6 @@ At least I'm honest about it.
 
 ![adaptive-neat-nn](/asset/adaptive-neat-nn.png)
 
-## Network
-
-- Bias Mutations
-- Link Mutations
-- Node (Neuron) Mutations
-
-## Network
-
-- Neuron connections are weighted
-- (not in NEAT: Weight Mutations)
-- (not in NEAT: Backpropagation)
-
-
-= Pool
-
-# Pool
-
-## Pool
-
-- Pool represents evolution's population
-- has multiple generations of species
-- keeps track of innovations
-
-## Pool
-
-- keeps track of current species
-- keeps track of current genome(s)
-- keeps track of maximum fitness(es)
-
-## Pool
-
-- Multiple Species represent a Pool
-- measures Species by fitness / average fitness
-- sorts Species by performance
-- sorts Species by behaviour/complexity
-
-
-= Species
-
-# Species
-
-## Species
-
-- NEAT divides characteristics in species
-- Multiple agents represent one specie(s)
-- Breeding happens per-species, not per-agent
-
 
 = Genome
 
@@ -206,19 +158,6 @@ using breeding mechanisms.
 ![neat-gene](/asset/neat-gene.png)
 
 
-= Advanced NEAT Concepts
-
-# Advanced NEAT Concepts
-
-## Advanced NEAT Concepts
-
-- Backpropagated NEAT
-- Hypercube-encoded NEAT
-- Evolvable Substrate HyperNEAT
-- Backpropagated ES/HyperNEAT
-- Backpropagated Segmented ES/HyperNEAT
-
-
 = Demo Video
 
 # Demo Video
@@ -226,6 +165,30 @@ using breeding mechanisms.
 ## Demo Video
 
 [MarIO](https://youtube.com/watch?v=qv6UVOQ0F44)
+
+
+# In Practice
+
+## In Practice
+
+- good at explorative search space
+- good at finding unknown solutions
+- good at combinations of existing knowledge
+- can be seen as decision tree automation
+
+
+## Automation Idea
+
+- everybody writes unit tests
+- unit tests are bad
+- behavioural tests are good
+- automate relations between tests and code
+
+
+## Demo App
+
+[Demo](/demo/evolution-of-code)
+
 
 
 = The End
