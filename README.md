@@ -35,7 +35,6 @@ or (if on old Macbook) via SimpleHTTPServer.
 - hold on FrankfurtJS December 2015
 - No Video :(
 
-
 [AI Crash Course Part 1](./book/04-AI-Crash-Course.md)
 
 - hold on Heidelberg AI Meetup August 2017
