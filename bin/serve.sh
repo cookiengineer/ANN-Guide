@@ -2,26 +2,17 @@
 
 ./bin/generate.sh;
 
+NODE_BIN=`which node`;
 SLIDES_ROOT=$(cd "$(dirname "$(readlink -f "$0")")/../"; pwd);
 
-PYTHON3=`which python3`;
-PYTHON2=`which python`;
 
-if [ "$PYTHON3" != "" ]; then
+if [ "$NODE_BIN" != "" ]; then
 
 	cd $SLIDES_ROOT;
 
-	$(cd $SLIDES_ROOT && $PYTHON3 -m http.server 1337) &
-	$(cd $SLIDES_ROOT/demo && $PYTHON3 -m http.server 1338) &
-	wait;
+	echo "";
 
-elif [ "$PYTHON2" != "" ]; then
-
-	cd $SLIDES_ROOT;
-
-	$(cd $SLIDES_ROOT && $PYTHON2 -m SimpleHTTPServer 1337) &
-	$(cd $SLIDES_ROOT/demo && $PYTHON2 -m SimpleHTTPServer 1338) &
-	wait;
+	$NODE_BIN ./source/server/index.js 1337;
 
 fi;
 

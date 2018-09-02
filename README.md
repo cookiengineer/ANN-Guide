@@ -7,11 +7,15 @@ I'm lazy and I kind of hated "wasted" Repositories, so
 this is kind of the new collection of talks that I do
 from time to time.
 
-Slides are written in a subset of CommonMark, so the
-`./bin/generate.sh` part requires node.js installed to
-function properly. The `./bin/serve.sh` just calls the
-generator and then serves stuff via python's http.server
-or (if on old Macbook) via SimpleHTTPServer.
+The `./bin/generate.sh` requires node.js preinstalled
+and will convert the slides in the [/book](./book) folder
+into HTML and update the [/index.html](./index.html) file.
+
+
+The `./bin/serve.sh` requires node.js preinstalled and
+is a simple static webserver that will serve the repository
+contents on `http://localhost:1337` by default, including
+the [/demo](./demo) folder.
 
 
 # Contents
@@ -59,7 +63,6 @@ or (if on old Macbook) via SimpleHTTPServer.
 
 - hold at Frankfurt Analytics Meetup April 2018
 - Introduction Talk, explaining the underlying concepts
-
 
 
 ## Work in Progress

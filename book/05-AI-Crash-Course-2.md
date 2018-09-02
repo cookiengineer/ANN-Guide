@@ -18,15 +18,14 @@
 
 ## Preparations
 
-- Use either python2 or python3 for quick webserver
+- Install `node.js` and use the built-in web server.
 
 ```bash
-cd /path/to/demo;
+cd /path/to/talks;
 
-python3 -m http.server 1337;
+bash ./bin/serve.sh;
 
-# You should update once in a decade. Srsly.
-# python2 -m SimpleHTTPServer 1337;
+# Now go to http://localhost:1337/demo in web browser!
 ```
 
 

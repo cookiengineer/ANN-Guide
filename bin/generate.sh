@@ -1,5 +1,6 @@
 #!/bin/bash
 
+NODE_BIN=`which node`;
 SLIDES_BOOK="";
 SLIDES_ROOT=$(cd "$(dirname "$(readlink -f "$0")")/../"; pwd);
 
@@ -11,5 +12,9 @@ for filename in ./book/*.md; do
 done;
 
 
-node ./source/generator/index.js "$SLIDES_BOOK";
+if [ "$NODE_BIN" != "" ]; then
+	$NODE_BIN ./source/generator/index.js "$SLIDES_BOOK";
+else
+	echo "Please install node.js.";
+fi;
 
