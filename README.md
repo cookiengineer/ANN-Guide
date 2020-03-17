@@ -65,6 +65,13 @@ the [/demo](./demo) folder.
 - Introduction Talk, explaining the underlying concepts
 
 
+# Workshops
+
+[Evolutionary AI Workshop](./workshop/evolutionary-ai)
+
+- hold on Post Binary conference November 2018
+
+
 ## Work in Progress
 
 Reinforcement AI

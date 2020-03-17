@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Evolutionary AI Workshop</title>
+		<style>
+		body {
+			margin: 0px;
+			padding: 0px;
+			background: #404552;
+		}
+		body * {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		article {
+			margin: 32px;
+			padding: 16px;
+			color: #ffffff;
+			background: #333742;
+			border: 1px solid #2a2c36;
+			border-radius: 8px;
+		}
+		article h3 {
+			display: block;
+			margin: 0px auto 16px auto;
+			padding: 0px;
+			color: #ffffff;
+			font-size: 32px;
+			font-family: 'DejaVu Sans';
+			line-height: 32px;
+			vertical-align: middle;
+		}
+		article a {
+			color: #ffffff;
+			font-family: 'DejaVu Sans';
+			font-size: 16px;
+			text-decoration: none;
+		}
+		article a:hover,
+		article a:focus {
+			color: #4dadd4;
+			transition: all 250ms ease-out;
+		}
+		article ul {
+			margin: 0px;
+			padding: 0px;
+		}
+		article ul li {
+			list-style: none;
+			margin: 0px;
+			padding: 0px 0px 8px 0px;
+			cursor: pointer;
+		}
+		</style>
+	</head>
+	<body>
+		<article>
+			<h3>Pong Agent</h3>
+			<p>
+				Link: <a href="/pong-agent/index.html">/pong-agent</a>
+			</p>
+			<p>
+				Task: Build an Agent that controls the
+				Paddle and integrate it into the Pong Game.
+			</p>
+			<ul>
+				<li><input type="checkbox"/>Game.js/update: Integrate the Agent's <em>compute()</em> method in order to make decisions.</li>
+				<li><input type="checkbox"/>Game.js/restart: Learn from previous mistakes.</li>
+				<li><input type="checkbox"/>Game.js/restart: Remember training data.</li>
+			</ul>
+		</article>
+		<article>
+			<h3>Pong Brain</h3>
+			<p>
+				Link: <a href="/pong-brain/index.html">/pong-brain</a>
+			</p>
+			<p>
+				Task: Build a Brain and make the Agent smarter
+				using Reinforcement Learning and an automated
+				Training for both success and failure scenarios.
+			</p>
+			<ul>
+				<li><input type="checkbox"/>Brain.js/compute: Set Input Neuron values.</li>
+				<li><input type="checkbox"/>Brain.js/compute: Feed Forward for Hidden Layers + Output Layer.</li>
+				<li><input type="checkbox"/>Brain.js/learn: Calculate Gradient for Output Layer.</li>
+				<li><input type="checkbox"/>Brain.js/learn: Calculate Gradient for Hidden Layers and Input Layer.</li>
+				<li><input type="checkbox"/>Brain.js/learn: Re-Calculate weights based on Gradient.</li>
+			</ul>
+		</article>
+		<article>
+			<h3>Pong Evolution</h3>
+			<p>
+				Link: <a href="/pong-evolution/index.html">/pong-evolution</a>
+			</p>
+			<p>
+				Task: Build and integrate a Simulation and
+				an Evolution in order to parallelize the
+				Pong AI training.
+			</p>
+			<ul>
+				<li><input type="checkbox"/>Agent.js/crossover: Implement a genetic crossover algorithm for all neuron weights.</li>
+				<li><input type="checkbox"/>Game.js/update: Keep track of Agent fitness.</li>
+				<li><input type="checkbox"/>Brain.js/serialize: Implement serialization for the Brain's neuron weights.</li>
+				<li><input type="checkbox"/>Brain.js/deserialize: Implement deserialization for the Brain's neuron weights.</li>
+				<li><input type="checkbox"/>Evolution.js: Implement Evolution Cycle to create new populations of Agents.</li>
+			</ul>
+		</article>
+		<article>
+			<h3>Pong Gene Tracking</h3>
+			<p>
+				Link: <a href="/pong-gene-tracking/index.html">/pong-gene-tracking</a>
+			</p>
+			<p>
+				Task: Build and integrate a DNA history and
+				track genes based on the behaviour performance
+				of each Agents in each Simulation.
+			</p>
+		</article>
+		<script>
+			Array.from(document.querySelectorAll('ul li')).forEach(item => {
+
+				item.onclick = function() {
+
+					let input = this.querySelector('input[type="checkbox"]') || null;
+					if (input !== null) {
+						input.checked = input.checked === false;
+					}
+
+				};
+
+			});
+		</script>
+	</body>
+</html>
